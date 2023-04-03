@@ -4,15 +4,26 @@ import {Paper, Typography, useMediaQuery} from '@material-ui/core'
 import LocationOnOutlineIcon from '@material-ui/icons/LocationOnOutlined'
 import HomeIcon from '@material-ui/icons/Home'
 import { Rating } from "@material-ui/lab";
+import './styles.css'
 
 import useStyles from './styles';
 
 const Map = ({setCoordinates, setBounds, coordinates, stores, home}) => {
     const classes = useStyles();
 
+    const defaultProps = {
+        center: {
+          lat: coordinates.lat,
+          lng: coordinates.lng
+        },
+        zoom: 11
+      };
+
+      console.log(defaultProps)
+
     return (
-        <div className={classes.mapContainer}>
-            <GoogleMapReact bootstrapURLKeys = {{key: ''}}
+        <div style={{ height: '50vh', width: '1000px' }}>
+            {/* <GoogleMapReact bootstrapURLKeys = {{key: ""}}
                 defaultCenter = {coordinates}
                 center = {coordinates}
                 defaultZoom = {14}
@@ -52,7 +63,23 @@ const Map = ({setCoordinates, setBounds, coordinates, stores, home}) => {
                 ))}
                 
                 
-            </GoogleMapReact>
+            </GoogleMapReact> */}
+
+    <div >
+      <GoogleMapReact
+        bootstrapURLKeys={{ key: "" }}
+        defaultCenter={defaultProps.center}
+        defaultZoom={defaultProps.zoom}
+      >
+        {/* <div 
+            className={classes.markerContainer}
+            lat = {home.lat}
+            lng = {home.lng}
+            >
+            <HomeIcon color="primary" fontSize="large"/>
+        </div> */}
+      </GoogleMapReact>
+    </div>
         </div>
     )
 }

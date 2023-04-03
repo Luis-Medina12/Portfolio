@@ -40,11 +40,11 @@ const translateInput = () =>{
         <textarea placeholder='Enter your text here' name="text" className = "Input-box" onChange={handleInputChange}/>
         <div className = "interactables">
         <button onClick = {translateInput} className = "submit-button" >TRANSLATE</button>
-        <label className="switch">
+        {/* <label className="switch">
           <input className="switch-input" type="checkbox"/>
           <span className="switch-label" data-on="Saurian" data-off="English"></span> 
           <span className="switch-handle"></span> 
-        </label>
+        </label> */}
         </div>
         {console.log(text)}
 

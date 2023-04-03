@@ -21,7 +21,7 @@ export default function SaurianTranslator () {
     //   ...prevState,text
     // }));
     setTranslate(text.text);
-  };
+  };  
   
     return (
       <div className="App">
@@ -39,18 +39,21 @@ export default function SaurianTranslator () {
           <textarea placeholder='Enter your text here' name="text" className = "Input-box" onChange={handleInputChange}/>
           <div className = "interactables">
           <button onClick = {translateInput} className = "submit-button" >TRANSLATE</button>
+
+          {}
+
+
+
           {/* <label className="switch">
             <input className="switch-input" type="checkbox"/>
             <span className="switch-label" data-on="Saurian" data-off="English"></span> 
             <span className="switch-handle"></span> 
           </label> */}
           </div>
-          {console.log(text)}
   
             {transalate!=null && transalate!= "" && <p className='result-window'>Translation:</p>}
             {text!=null && transalate!= "" && <Translator text = {transalate} className='result-window'/>}
         </body>
-        <Footer/>
       </div>
     );
 

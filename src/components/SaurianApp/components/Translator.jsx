@@ -40,24 +40,37 @@ while(i< SAURIANARR.length){
 const englishToSaurian = (original) =>{
     const trans = original.split("");
     let x = 0;
-    let nounRecognition = true;
+    let nounRecognition = false;
     
     for(let i = 0; i<trans.length; i++){
-    
-        if(!(trans[i].charCodeAt(0)>=65)){
-            console.log(trans[i]);
+        if(nounRecognition && trans[i].charAt(0) == ' '){
+            console.log("Turning off nounReco");
+            nounRecognition = false;
+        }
+        if(i!==0 && trans[i].charCodeAt(0)>=65 && trans[i].charCodeAt(0)<=90){
+            nounRecognition = true
+        }
+        
+        if(!nounRecognition){
+            // If number, then ignore and move on
+            if(trans[i].charCodeAt(0) <= 47 || trans[i].charCodeAt(0) >= 58){
+                trans[i] = hashedEng.get(trans[i]);
+            }
         }
 
-        if(nounRecognition && trans[i]>=65 && trans[i]<=90){
-            x = i;
-            while(trans[x]!= " " && x<trans.length){
-                x++;
-                console.log("looping");
-            }
-            console.log(x);
-            console.log("char at " +x+trans[x]);
-        }
-        trans[i] = hashedEng.get(trans[i]);
+        // if(nounRecognition && trans[i]>=65 && trans[i]<=90){
+        //     x = i;
+        //     while(trans[x]!= " " && x<trans.length){
+        //         x++;
+        //         console.log("looping");
+        //     }
+        //     console.log(x);
+        //     console.log("char at " +x+trans[x]);
+        // }
+
+        
+        
+        
     }
     return trans.join("");
 }
