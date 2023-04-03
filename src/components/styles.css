@@ -1,0 +1,60 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
+.NavBar{
+    margin: 10px;
+    background:#2a244a;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    color: white;
+    height: 50px;
+    align-items: center;
+}
+.Home{
+    margin: 10px;
+    height: auto;
+}
+.About{
+    margin: 10px;
+    height: auto;
+    display: flex;
+    background: #282c34;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    min-height: 90vh;
+}
+
+.SaurianTranslator{
+    margin: 10px;
+    height: auto;
+
+}
+.TargetBetterPrice{
+    margin: 10px;
+    height: auto;
+    
+}
+
+.Links{
+    color: white;
+}
+
+span {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2em;
+  transform: translate(-50%,-50%);
+  background-image: linear-gradient(#364bb2, #6b6876);
+  color: white;
+  background-size: 100% 10px;
+  background-repeat: no-repeat;
+  background-position: 100% 0%;
+   transition: background-size .7s, background-position .5s ease-in-out;
+}
+
+span:hover {
+  background-size: 100% 100%;
+  background-position: 0% 100%;
+  transition: background-position .7s, background-size .5s ease-in-out;
+}
