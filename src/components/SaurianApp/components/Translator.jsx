@@ -58,19 +58,6 @@ const englishToSaurian = (original) =>{
             }
         }
 
-        // if(nounRecognition && trans[i]>=65 && trans[i]<=90){
-        //     x = i;
-        //     while(trans[x]!= " " && x<trans.length){
-        //         x++;
-        //         console.log("looping");
-        //     }
-        //     console.log(x);
-        //     console.log("char at " +x+trans[x]);
-        // }
-
-        
-        
-        
     }
     return trans.join("");
 }

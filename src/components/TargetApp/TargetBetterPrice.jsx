@@ -7,7 +7,6 @@
 //     );
 // }
 
-
 import React, {useEffect, useState} from "react";
 import List from "./components 2/List/List";
 import Map from "./components 2/Map/Map";
@@ -15,7 +14,6 @@ import useStyles from './components 2/Headers/styles'
 import { Autocomplete, Data } from "@react-google-maps/api";
 import { Toolbar, AppBar, Typography, InputBase, Box, Button, CssBaseline, Grid } from "@material-ui/core";
 import MoneyOffIcon from '@material-ui/icons/MoneyOff';
-// import styles from './styles.css'
 import {getStores, getProduct} from "./components 2/dataManagement/Data";
 import Instructions from "./components 2/Instructions/Instructions";
 import { productResp} from './components 2/dataManagement/ProductData';
@@ -126,10 +124,12 @@ function TargetBetterPrice() {
 
   return (
     <>
-    <nav className="NavBar"> 
-        <MoneyOffIcon fontSize="large"/>
-        Target Better Price
-        <MoneyOffIcon fontSize="large"/>
+    <nav className="NavBarTarget"> 
+        <div>
+          <MoneyOffIcon fontSize="large"/>
+          Target Better Price
+          <MoneyOffIcon fontSize="large"/>
+        </div>
 
         <div clasName = {classes.search} disableGutters>  
             <input
@@ -167,27 +167,16 @@ function TargetBetterPrice() {
             //   variant="outlined" color="default" 
               className={classes.submit} 
               onClick = {handleReset}
-            > Submit
+            > Reset
             </button>
 
           </div>
     </nav>
-    {/* <AppBar position="static">
-      <Toolbar className = {classes.toolbar}>
-        <Typography variant="h3" className = {classes.title}>
-          
-        </Typography>
-        <Box paddingLeft={15}>
-          
-        </Box>
-        
-      </Toolbar>
-    </AppBar> */}
-
 
     {responseData.length === 0 && <Instructions/>}
     <Grid container spacing={2} style = {{width: '100%'}}>
-      <Grid item xs={12} md={5}>
+      <Grid md = {2}></Grid>
+      <Grid item xs={12} md={8}>
         <div> List Here</div>
         {responseData.length!== 0 &&
           <List store = {responseData}
@@ -195,7 +184,8 @@ function TargetBetterPrice() {
           />
         }
       </Grid>
-      <Grid item xs={12} md = {7}>
+      <Grid md = {2}></Grid>
+      {/* <Grid item xs={12} md = {7}>
       {responseData.length!== 0 &&
           <Map
           setCoordinates={setCoordinates}
@@ -204,7 +194,7 @@ function TargetBetterPrice() {
           stores = {responseData}
           home = {home}/>
         }
-      </Grid>
+      </Grid> */}
     </Grid>
     </>
   )
