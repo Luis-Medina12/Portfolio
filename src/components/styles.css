@@ -11,6 +11,13 @@
     height: 50px;
     align-items: center;
 }
+.TargetName{
+    color: white;
+    font-weight: bold;
+    font-size: 1.75vw;
+    display: flex;
+    flex-direction: row;
+}
 .NavBarTarget{
     margin: 10px;
     background: rgb(204, 0, 0);
@@ -18,9 +25,20 @@
     justify-content: space-evenly;
     border-radius: 10px;
     color: white;
-    height: 50px;
+    height: 65px;
     align-items: center;
 }
+.saurianTitle{
+    /* font-size: 1.5vw; */
+    font-size: min(max(16px, 4vw), 22px);
+}
+.inputBox {
+    border-radius: 10px;
+    background-color: #ffffff;
+    padding: 10px 10px;
+    margin-right: 20px;
+    color: black;
+  }
 .Home{
     margin: 10px;
     height: auto;
@@ -54,6 +72,12 @@
 
 .Links{
     color: white;
+}
+.targetResultsPage{
+    background-color: rgb(198, 198, 198);
+    border-radius: 10px;
+    margin: 10px;
+    padding: 5px;
 }
 
 span {

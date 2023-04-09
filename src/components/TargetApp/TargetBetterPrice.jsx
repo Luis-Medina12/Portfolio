@@ -1,12 +1,3 @@
-// import React from "react";
-// export default function TargetBetterPrice () {
-//     return(
-//         <div className="TargetBetterPrice">
-//             <p>Target Better Price</p>
-//         </div>
-//     );
-// }
-
 import React, {useEffect, useState} from "react";
 import List from "./components 2/List/List";
 import Map from "./components 2/Map/Map";
@@ -112,8 +103,7 @@ function TargetBetterPrice() {
 
     }
   };
-    
-
+  
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(({coords: {latitude, longitude} }) =>{
       setCoordinates({lat: latitude, lng: longitude});
@@ -124,14 +114,15 @@ function TargetBetterPrice() {
 
   return (
     <>
+    <div className="targetResultsPage">
     <nav className="NavBarTarget"> 
-        <div>
+        <div className="TargetName">
           <MoneyOffIcon fontSize="large"/>
-          Target Better Price
+            <div >Target Better Price</div>
           <MoneyOffIcon fontSize="large"/>
         </div>
 
-        <div clasName = {classes.search} disableGutters>  
+        <div>  
             <input
               placeholder = "TCIN"
               type="number"
@@ -156,46 +147,48 @@ function TargetBetterPrice() {
               className= "inputBox"
             />
 
-            <button 
-            //   variant="outlined" color="default" 
-              className={classes.submit} 
-              onClick = {handleSubmit}
-            > Submit
+            <button onClick = {handleSubmit}> 
+              Submit
             </button>
 
-            <button 
-            //   variant="outlined" color="default" 
-              className={classes.submit} 
-              onClick = {handleReset}
-            > Reset
+            <button onClick = {handleReset}> 
+              Reset
             </button>
 
           </div>
     </nav>
 
     {responseData.length === 0 && <Instructions/>}
-    <Grid container spacing={2} style = {{width: '100%'}}>
-      <Grid md = {2}></Grid>
-      <Grid item xs={12} md={8}>
-        <div> List Here</div>
+
+    
+      <Grid container spacing={2} style = {{width: '100%'}}>
+        <Grid md = {2}></Grid>
+        <Grid item xs={12} md={8}>
+          {responseData.length!== 0 &&
+            <List store = {responseData}
+            currLocation = {coordinates}
+            />
+          }
+        </Grid>
+        <Grid md = {2}></Grid>
+
+        {/* leaving map out for now, bug is causing it to crash */}
+
+        {/* //TODO: fix bug causing crash when loading map */}
+        
+        {/* <Grid item xs={12} md = {7}>
         {responseData.length!== 0 &&
-          <List store = {responseData}
-          currLocation = {coordinates}
-          />
-        }
+            <Map
+            setCoordinates={setCoordinates}
+            setBounds = {setBounds}
+            coordinates = {coordinates}
+            stores = {responseData}
+            home = {home}/>
+          }
+        </Grid> */}
       </Grid>
-      <Grid md = {2}></Grid>
-      {/* <Grid item xs={12} md = {7}>
-      {responseData.length!== 0 &&
-          <Map
-          setCoordinates={setCoordinates}
-          setBounds = {setBounds}
-          coordinates = {coordinates}
-          stores = {responseData}
-          home = {home}/>
-        }
-      </Grid> */}
-    </Grid>
+    </div>
+
     </>
   )
 }

@@ -7,6 +7,7 @@ import Footer from '../Footer/Footer';
 export default function SaurianTranslator () {
     const [text, setText] = useState("Enter your text here");
     const [transalate, setTranslate] = useState(null);
+    const [transLanguage, setTransLanguage] = useState('ENGLISH');
   
     const handleInputChange = (event) => {
     const { name, value } = event.target;
@@ -21,28 +22,32 @@ export default function SaurianTranslator () {
     //   ...prevState,text
     // }));
     setTranslate(text.text);
-  };  
+  };
+
+  function switchLang() {
+    if(transLanguage === 'ENGLISH')
+    {
+      setTransLanguage("SAURIAN")
+    }else{
+      setTransLanguage("ENGLISH")
+    }
+  }
   
     return (
       <div className="App">
-        
-        {/* <header className="App-header">
-          Saurian-English Translator
-        </header> */}
   
         <Header/>
         
         {/* TODO: Need to add switch or button to switch between languages */}
         <body className = "App-body">
-          <p>Welcome to the saurian Translator! Here you can translate sentances from English to Saurian and Saurian to English.</p>
-  
+          <div className='saurianTitle'>
+          <p>Welcome to the saurian Translator! Here you can translate sentances from English to Saurian.</p>
+          
+          </div>  
           <textarea placeholder='Enter your text here' name="text" className = "Input-box" onChange={handleInputChange}/>
           <div className = "interactables">
           <button onClick = {translateInput} className = "submit-button" >TRANSLATE</button>
-
-          {}
-
-
+          <button onClick={switchLang} className = "submit-button">TRANSLATE FROM: {transLanguage}</button>
 
           {/* <label className="switch">
             <input className="switch-input" type="checkbox"/>
@@ -52,7 +57,7 @@ export default function SaurianTranslator () {
           </div>
   
             {transalate!=null && transalate!= "" && <p className='result-window'>Translation:</p>}
-            {text!=null && transalate!= "" && <Translator text = {transalate} className='result-window'/>}
+            {text!=null && transalate!= "" && <Translator text = {transalate} language = {transLanguage} className='result-window'/>}
         </body>
       </div>
     );
