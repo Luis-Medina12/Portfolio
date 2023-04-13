@@ -15,14 +15,15 @@
 
 .App-header {
   background-color: #006803;
-  min-height: 10vh;
+  height: 65px;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-size: calc(15px + 2vmin);
+  font-size: 1.75vw;
   color: white;
   border-radius: 10px;
   margin: 10px;
+  font-weight: bold;
 }
 .submit-button{
 
@@ -53,7 +54,7 @@
   font-size: calc(10px + 2vmin);
   color: white;
   padding: 10px;
-  margin: 15px;
+  margin: 10px;
   border-radius: 10px;
 }
 .Input-box{

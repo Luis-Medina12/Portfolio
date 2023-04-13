@@ -48,6 +48,7 @@ function TargetBetterPrice() {
 
   const handleReset = (event) =>{
     event.preventDefault();
+    setResponseData([]);
   }
 
 
@@ -94,9 +95,7 @@ function TargetBetterPrice() {
           //})
         };
     
-        stores.sort((a,b) => a.price - b.price);
-        console.log(stores);
-  
+        stores.sort((a,b) => a.price - b.price);  
         setResponseData(stores);
       //})
 
@@ -114,7 +113,7 @@ function TargetBetterPrice() {
 
   return (
     <>
-    <div className="targetResultsPage">
+    {/* <div className="targetResultsPage"> */}
     <nav className="NavBarTarget"> 
         <div className="TargetName">
           <MoneyOffIcon fontSize="large"/>
@@ -159,8 +158,6 @@ function TargetBetterPrice() {
     </nav>
 
     {responseData.length === 0 && <Instructions/>}
-
-    
       <Grid container spacing={2} style = {{width: '100%'}}>
         <Grid md = {2}></Grid>
         <Grid item xs={12} md={8}>
@@ -187,7 +184,6 @@ function TargetBetterPrice() {
           }
         </Grid> */}
       </Grid>
-    </div>
 
     </>
   )
