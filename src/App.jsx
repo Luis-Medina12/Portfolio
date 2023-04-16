@@ -16,7 +16,7 @@ import Footer from "./components/Footer/Footer";
         <>
         <NavBar/>
         <Routes>
-          <Route exact path="/" element={<Home/>}/>
+          <Route exact path="/" element={<About/>}/>
           <Route exact path="/About" element={<About/>}/>
           <Route exact path="/TargetBetterPrice" element={<TargetBetterPrice/>}/>
           <Route exact path="/SaurianTranslator" element={<SaurianTranslator/>}/>

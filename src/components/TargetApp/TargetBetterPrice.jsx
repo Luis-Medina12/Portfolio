@@ -1,13 +1,3 @@
-// import React from "react";
-// export default function TargetBetterPrice () {
-//     return(
-//         <div className="TargetBetterPrice">
-//             <p>Target Better Price</p>
-//         </div>
-//     );
-// }
-
-
 import React, {useEffect, useState} from "react";
 import List from "./components 2/List/List";
 import Map from "./components 2/Map/Map";
@@ -15,7 +5,6 @@ import useStyles from './components 2/Headers/styles'
 import { Autocomplete, Data } from "@react-google-maps/api";
 import { Toolbar, AppBar, Typography, InputBase, Box, Button, CssBaseline, Grid } from "@material-ui/core";
 import MoneyOffIcon from '@material-ui/icons/MoneyOff';
-// import styles from './styles.css'
 import {getStores, getProduct} from "./components 2/dataManagement/Data";
 import Instructions from "./components 2/Instructions/Instructions";
 import { productResp} from './components 2/dataManagement/ProductData';
@@ -59,6 +48,7 @@ function TargetBetterPrice() {
 
   const handleReset = (event) =>{
     event.preventDefault();
+    setResponseData([]);
   }
 
 
@@ -105,17 +95,14 @@ function TargetBetterPrice() {
           //})
         };
     
-        stores.sort((a,b) => a.price - b.price);
-        console.log(stores);
-  
+        stores.sort((a,b) => a.price - b.price);  
         setResponseData(stores);
       //})
 
 
     }
   };
-    
-
+  
   useEffect(() => {
     navigator.geolocation.getCurrentPosition(({coords: {latitude, longitude} }) =>{
       setCoordinates({lat: latitude, lng: longitude});
@@ -126,12 +113,15 @@ function TargetBetterPrice() {
 
   return (
     <>
-    <nav className="NavBar"> 
-        <MoneyOffIcon fontSize="large"/>
-        Target Better Price
-        <MoneyOffIcon fontSize="large"/>
+    {/* <div className="targetResultsPage"> */}
+    <nav className="NavBarTarget"> 
+        <div className="TargetName">
+          <MoneyOffIcon fontSize="large"/>
+            <div >Target Better Price</div>
+          <MoneyOffIcon fontSize="large"/>
+        </div>
 
-        <div clasName = {classes.search} disableGutters>  
+        <div>  
             <input
               placeholder = "TCIN"
               type="number"
@@ -156,56 +146,45 @@ function TargetBetterPrice() {
               className= "inputBox"
             />
 
-            <button 
-            //   variant="outlined" color="default" 
-              className={classes.submit} 
-              onClick = {handleSubmit}
-            > Submit
+            <button onClick = {handleSubmit}> 
+              Submit
             </button>
 
-            <button 
-            //   variant="outlined" color="default" 
-              className={classes.submit} 
-              onClick = {handleReset}
-            > Submit
+            <button onClick = {handleReset}> 
+              Reset
             </button>
 
           </div>
     </nav>
-    {/* <AppBar position="static">
-      <Toolbar className = {classes.toolbar}>
-        <Typography variant="h3" className = {classes.title}>
-          
-        </Typography>
-        <Box paddingLeft={15}>
-          
-        </Box>
-        
-      </Toolbar>
-    </AppBar> */}
-
 
     {responseData.length === 0 && <Instructions/>}
-    <Grid container spacing={2} style = {{width: '100%'}}>
-      <Grid item xs={12} md={5}>
-        <div> List Here</div>
+      <Grid container spacing={2} style = {{width: '100%'}}>
+        <Grid md = {2}></Grid>
+        <Grid item xs={12} md={8}>
+          {responseData.length!== 0 &&
+            <List store = {responseData}
+            currLocation = {coordinates}
+            />
+          }
+        </Grid>
+        <Grid md = {2}></Grid>
+
+        {/* leaving map out for now, bug is causing it to crash */}
+
+        {/* //TODO: fix bug causing crash when loading map */}
+        
+        {/* <Grid item xs={12} md = {7}>
         {responseData.length!== 0 &&
-          <List store = {responseData}
-          currLocation = {coordinates}
-          />
-        }
+            <Map
+            setCoordinates={setCoordinates}
+            setBounds = {setBounds}
+            coordinates = {coordinates}
+            stores = {responseData}
+            home = {home}/>
+          }
+        </Grid> */}
       </Grid>
-      <Grid item xs={12} md = {7}>
-      {responseData.length!== 0 &&
-          <Map
-          setCoordinates={setCoordinates}
-          setBounds = {setBounds}
-          coordinates = {coordinates}
-          stores = {responseData}
-          home = {home}/>
-        }
-      </Grid>
-    </Grid>
+
     </>
   )
 }

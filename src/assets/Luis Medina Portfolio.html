@@ -1,0 +1,406 @@
+<!DOCTYPE html>
+<!-- saved from url=(0027)http://localhost:5173/About -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <script type="module">
+import RefreshRuntime from "/@react-refresh"
+RefreshRuntime.injectIntoGlobalHook(window)
+window.$RefreshReg$ = () => {}
+window.$RefreshSig$ = () => (type) => type
+window.__vite_plugin_react_preamble_installed__ = true
+</script>
+
+    <script type="module" src="./Luis Medina Portfolio_files/client"></script>
+
+    
+    <link rel="icon" type="image/svg+xml" href="http://localhost:5173/hammer.svg">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Luis Medina Portfolio</title>
+  <style type="text/css" data-vite-dev-id="/Users/luismedina/Desktop/portfolio/src/App.css">.body{
+  display: flex;
+  background: red;
+  justify-content: center;
+  height: auto;
+}
+.logo {
+  height: 6em;
+  padding: 1.5em;
+  will-change: filter;
+  transition: filter 300ms;
+}
+.logo:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.logo.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
+@keyframes logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  a:nth-of-type(2) .logo {
+    animation: logo-spin infinite 20s linear;
+  }
+}
+
+.card {
+  padding: 2em;
+}
+
+.read-the-docs {
+  color: #888;
+}</style><style type="text/css" data-vite-dev-id="/Users/luismedina/Desktop/portfolio/src/components/TargetApp/components 2/Map/styles.css">.mapContainer {
+    height: 100vh; 
+    width: 100%;
+    /* background: blue; */
+}</style><style type="text/css" data-vite-dev-id="/Users/luismedina/Desktop/portfolio/src/components/SaurianApp/App.css">.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #006803;
+  min-height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(15px + 2vmin);
+  color: white;
+  border-radius: 10px;
+  margin: 10px;
+}
+.submit-button{
+
+  border: none;
+  color: #FFF;
+  cursor: pointer;
+  border-radius: 10px;
+  font-size: 16px;
+  padding: 0px 20px !important;
+  height: 36px;
+  line-height: 1;
+  appearance: none;
+  background-color: #006803;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 15px ;
+}
+
+
+.App-body {
+  background-color: #282c34;
+  min-height: 70vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+  font-size: calc(10px + 2vmin);
+  color: white;
+  padding: 10px;
+  margin: 15px;
+  border-radius: 10px;
+}
+.Input-box{
+  border-radius: 10px;
+  display: block;
+  box-sizing: border-box;
+  padding: 10px;
+  width: 90%;
+  height: 150px;
+  background-color: gainsboro;
+  border: 1px solid #006803;
+  font-size: 20px;
+  resize:vertical;
+  color: black;
+}
+
+.results {
+  border-radius: 10px;
+  display: block;
+  box-sizing: border-box;
+  padding: 20px;
+  width: 90%;
+  height: auto;
+  background-color: #006803;
+  font-size: 20px;
+  margin: 20px;
+  margin-top: 5px;
+  text-align:center
+}
+
+.interactables{
+  display: flex;
+  align-items: center;
+}
+
+.result-window{
+  margin: 10px;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.switch {
+	position: relative;
+	display: block;
+	vertical-align: top;
+	width: 100px;
+	height: 30px;
+	padding: 3px;
+	border-radius: 10px;
+	cursor: pointer;
+  
+}
+.switch-input {
+	position: absolute;
+	top: 0;
+	left: 0;
+	opacity: 0;
+	box-sizing:content-box;
+}
+.switch-label {
+	position: relative;
+	display: block;
+	height: inherit;
+	font-size: 14px;
+	text-transform: uppercase;
+	background: #eceeef;
+	border-radius: inherit;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.12), inset 0 0 2px rgba(0, 0, 0, 0.15);
+	box-sizing:content-box;
+}
+.switch-label:before, .switch-label:after {
+	position: absolute;
+	top: 50%;
+	margin-top: -.5em;
+	line-height: 1;
+	-webkit-transition: inherit;
+	-moz-transition: inherit;
+	-o-transition: inherit;
+	transition: inherit;
+	box-sizing:content-box;
+}
+.switch-label:before {
+	content: attr(data-off);
+	right: 11px;
+	color: #aaaaaa;
+	text-shadow: 0 1px rgba(255, 255, 255, 0.5);
+}
+.switch-label:after {
+	content: attr(data-on);
+	left: 11px;
+	color: #FFFFFF;
+	text-shadow: 0 1px rgba(0, 0, 0, 0.2);
+	opacity: 0;
+}
+.switch-input:checked ~ .switch-label {
+	background: #006803;
+	box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.15), inset 0 0 3px rgba(0, 0, 0, 0.2);
+}
+.switch-input:checked ~ .switch-label:before {
+	opacity: 0;
+}
+.switch-input:checked ~ .switch-label:after {
+	opacity: 1;
+}
+.switch-handle {
+	position: absolute;
+	top: 4px;
+	left: 4px;
+	width: 28px;
+	height: 28px;
+	background: linear-gradient(to bottom, #FFFFFF 40%, #f0f0f0);
+	background-image: -webkit-linear-gradient(top, #FFFFFF 40%, #f0f0f0);
+	border-radius: 100%;
+	box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.2);
+}
+.switch-handle:before {
+	content: "";
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	margin: -6px 0 0 -6px;
+	width: 12px;
+	height: 12px;
+	background: linear-gradient(to bottom, #eeeeee, #FFFFFF);
+	background-image: -webkit-linear-gradient(top, #eeeeee, #FFFFFF);
+	border-radius: 6px;
+	box-shadow: inset 0 1px rgba(0, 0, 0, 0.02);
+}
+.switch-input:checked ~ .switch-handle {
+	left: 74px;
+	box-shadow: -1px 1px 5px rgba(0, 0, 0, 0.2);
+}</style><style type="text/css" data-vite-dev-id="/Users/luismedina/Desktop/portfolio/src/components/Footer/styles.css">
+.footer{
+  color: white;
+  display: flex;
+  justify-content: center;
+}</style><style type="text/css" data-vite-dev-id="/Users/luismedina/Desktop/portfolio/src/components/styles.css">@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+
+.NavBar{
+    margin: 10px;
+    background:#2a244a;
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    color: white;
+    height: 50px;
+    align-items: center;
+}
+
+
+.NavBarTarget{
+    margin: 10px;
+    background: rgb(204, 0, 0);
+    display: flex;
+    justify-content: space-evenly;
+    border-radius: 10px;
+    color: white;
+    height: 50px;
+    align-items: center;
+}
+
+
+.Home{
+    margin: 10px;
+    height: auto;
+}
+
+
+.About{
+    margin: 10px;
+    height: auto;
+    display: flex;
+    background: #282c34;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+    min-height: 90vh;
+}
+
+
+.SaurianTranslator{
+    margin: 10px;
+    height: auto;
+
+}
+
+
+.TargetBetterPrice{
+    margin: 10px;
+    height: auto;
+    
+}
+
+
+.Links{
+    color: white;
+}
+
+
+span {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 2em;
+  transform: translate(-50%,-50%);
+  background-image: linear-gradient(#364bb2, #6b6876);
+  color: white;
+  background-size: 100% 10px;
+  background-repeat: no-repeat;
+  background-position: 100% 0%;
+   transition: background-size .7s, background-position .5s ease-in-out;
+}
+
+
+span:hover {
+  background-size: 100% 100%;
+  background-position: 0% 100%;
+  transition: background-position .7s, background-size .5s ease-in-out;
+}</style><style type="text/css" data-vite-dev-id="/Users/luismedina/Desktop/portfolio/src/index.css">:root {
+  font-family: Inter, system-ui, Avenir, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+  font-weight: 400;
+
+  color-scheme: light dark;
+  color: rgba(255, 255, 255, 0.87);
+  background-color: #242424;
+
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  -webkit-text-size-adjust: 100%;
+}
+
+a {
+  font-weight: 500;
+  color: #646cff;
+  text-decoration: inherit;
+}
+a:hover {
+  color: #535bf2;
+}
+button {
+  border-radius: 8px;
+  border: 1px solid transparent;
+  padding: 0.6em 1.2em;
+  font-size: 1em;
+  font-weight: 500;
+  font-family: inherit;
+  background-color: #1a1a1a;
+  cursor: pointer;
+  transition: border-color 0.25s;
+}
+button:hover {
+  border-color: #646cff;
+}
+button:focus,
+button:focus-visible {
+  outline: 4px auto -webkit-focus-ring-color;
+}
+
+@media (prefers-color-scheme: light) {
+  :root {
+    color: #213547;
+    background-color: #ffffff;
+  }
+  a:hover {
+    color: #747bff;
+  }
+  button {
+    background-color: #f9f9f9;
+  }
+}
+</style></head>
+  <body data-new-gr-c-s-check-loaded="14.1102.0" data-gr-ext-installed="">
+    <div id="root"><div class="NavBar"><a class="Links" href="http://localhost:5173/About"><span>About Me</span></a><a class="Links" href="http://localhost:5173/TargetBetterPrice"><span>Target Better Price</span></a><a class="Links" href="http://localhost:5173/SaurianTranslator"><span>Saurian</span></a></div><div class="About"><h1>About Me</h1><p>Hey there! My name is Luis Medina 👋 I am an Engineer at heart, passionate creator, tech enthusiast, and Marvel movie loving nerd!</p><ul><li>🏢 I currently work in the Property &amp; Casualty Underwriting department at State Farm®</li><li>📚 I am a Senior attending Arizona State University for my B.S. in Computer Science</li><li>📚 I also hold an Associate in Science with an Emphasis in Computer Science</li><li>🥅 My current goal is to transition to a Software Engineer role and eventually become a Full Stack Engineer</li><li>⚡ Most of my (limited) free time is spent 3D printing, playing video games, and hanging out with my wife!</li></ul></div><footer class="footer"><small>© 2023 Medina development. All Rights Reserved</small></footer></div>
+    <script type="module" src="./Luis Medina Portfolio_files/main.jsx"></script>
+  
+
+</body><grammarly-desktop-integration data-grammarly-shadow-root="true"></grammarly-desktop-integration></html>

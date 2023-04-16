@@ -1,18 +1,15 @@
 
-//TODO: Need to add noun recognition.
 
 //TODO: Need to add condition to transition between language translating
 
 const Translator = (originalText) =>{
-const org = originalText.text;
 
-if(org!= null){
-    return(
-        <p className = "results" >{englishToSaurian(org)}</p>
-        
-    )
-        
-}
+    if(originalText.text!= null){
+        return(
+            <p className = "results" >{englishToSaurian(originalText.text, originalText.language)}</p>
+        )
+            
+    }
 
 }
 // Will return saurian equivalent
@@ -26,8 +23,8 @@ const ENGLISHARR = ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O',
     'r','s','t','u','v','w','x','y','z','!', ' ','.','?',',','\''];
 
 const SAURIANARR = ['U','R','S','T','O','V','W','X','A','Z','B','C','M','D','E','F','G',
-    'H','J','K','I','L','N','P','O','Q','u','r','s','t','o','v','w','x','a','z','b','c','m','d','e','f','g',
-    'h','j','k','i','l','n','p','o','q','!', ' ','.','?',',','\''];
+    'H','J','K','I','L','N','P','1','Q','u','r','s','t','o','v','w','x','a','z','b','c','m','d','e','f','g',
+    'h','j','k','i','l','n','p','0','q','!', ' ','.','?',',','\''];
 
 let i =0;
 while(i< SAURIANARR.length){
@@ -37,52 +34,46 @@ while(i< SAURIANARR.length){
     i++;
 }
 
-const englishToSaurian = (original) =>{
+const englishToSaurian = (original, language) =>{
     const trans = original.split("");
-    let x = 0;
     let nounRecognition = false;
+    if(trans.includes('y') && language === "SAURIAN"){
+        alert("Input contains 'y' or 'Y', please remove as this does not exist within the Saurian language.")
+        return '';
+    }
     
     for(let i = 0; i<trans.length; i++){
         if(nounRecognition && trans[i].charAt(0) == ' '){
-            console.log("Turning off nounReco");
             nounRecognition = false;
         }
-        if(i!==0 && trans[i].charCodeAt(0)>=65 && trans[i].charCodeAt(0)<=90){
+        if(i!==0 && trans[i].charCodeAt(0)>=65 && trans[i].charCodeAt(0)<=90 && trans[i-1] === ' ' && trans[i-2] !== '.'){
             nounRecognition = true
         }
         
         if(!nounRecognition){
-            // If number, then ignore and move on
+            // If number, then ignore and move on, else translate
             if(trans[i].charCodeAt(0) <= 47 || trans[i].charCodeAt(0) >= 58){
-                trans[i] = hashedEng.get(trans[i]);
+                // switch between english to saurin and saurian to english
+                if(language === "ENGLISH"){
+                    // Given english returns Saurian
+                    trans[i] = hashedEng.get(trans[i]);
+
+                    // manual translation to letter, 
+                    if(trans[i] === '0'){
+                        trans[i] = 'o';
+                    }else if(trans[i] ==='1'){
+                        trans[i] = 'O';
+                    }
+                }else{
+                    // Given Saurian returns English
+                    trans[i] = hashedSaur.get(trans[i]);
+                }
             }
         }
 
-        // if(nounRecognition && trans[i]>=65 && trans[i]<=90){
-        //     x = i;
-        //     while(trans[x]!= " " && x<trans.length){
-        //         x++;
-        //         console.log("looping");
-        //     }
-        //     console.log(x);
-        //     console.log("char at " +x+trans[x]);
-        // }
-
-        
-        
-        
     }
+
     return trans.join("");
 }
 
-const saurianToEnglish = (original) =>{
-    const trans = original.split("");
-    for(let i = 0; i<trans.length; i++){
-        trans[i] = hashedSaur.get(trans[i]);
-    }
-
-    return trans.toString();
-}
-
 export default Translator;
-

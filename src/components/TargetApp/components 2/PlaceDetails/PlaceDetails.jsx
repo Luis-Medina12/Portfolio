@@ -39,36 +39,38 @@ const PlaceDetails = ({store, currLoc}) => {
                 />
             <CardContent>
                 <Typography gutterBottom className = {classes.storeName}>{data.storeName}</Typography>
-                <Box display="flex" justifyContent= "space-between" >
-                    <Typography className = {classes.info}>Total Price</Typography>
-                    <Typography gutterBottom 
-                                className = {classes.results} 
-                                align="justify">
-                        ${(data.price+(data.price*data.taxrate)).toFixed(2)}
-                    </Typography>
-                </Box>
-                <Box display="flex" justifyContent= "space-between" my={2}>
+                <div className="infoCard">
+                    <div className="infoAddress">
+                        <Typography className = {classes.info}>Total Price</Typography>
+                        <Typography gutterBottom 
+                                    className = {classes.results} 
+                                    align="justify">
+                            ${(data.price+(data.price*data.taxrate)).toFixed(2)}
+                        </Typography>
+                    </div>
+
+                    <div className="infoAddress">
                     <Typography className = {classes.info}>Travel Distance</Typography>
                     <Typography gutterBottom 
                                 className = {classes.results} 
                                 align="justify">
                         {data.distance} miles
-                        </Typography>
-                </Box>
-                
-                {/* <Box display="flex" justifyContent= "space-between" >
-                    <Typography variant="h6">Address</Typography>
-                    <Typography gutterBottom variant="subtitle1" align="justify">{data.address}</Typography>
-                </Box> */}
-                <Typography gutterBottom variant="h6" className={classes.subtitle}>
-                    <LocationOnIcon fontSize="small"/>
-                    <Typography gutterBottom 
-                        className = {classes.results} 
-                        align="justify">
-                        <a href={"https://www.google.com/maps/dir/?api=1&origin="+currLoc.lat+","+currLoc.lng+"&destination="+encodeURIComponent(data.address)} target="_blank">{data.address}</a>
                     </Typography>
-                    
-                </Typography>
+                    </div>
+
+                    <div className="infoAddress">
+                        <Typography className = {classes.info}>Address</Typography>
+                        
+                        <Typography gutterBottom 
+                            className = {classes.results} 
+                            align="justify">
+                            <a href={"https://www.google.com/maps/dir/?api=1&origin="+currLoc.lat+","+
+                            currLoc.lng+"&destination="+encodeURIComponent(data.address)} target="_blank">{data.address}
+                            </a>
+                        </Typography>
+                </div>
+                </div>
+
                 
             </CardContent>
 
