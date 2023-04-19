@@ -1,14 +1,11 @@
 import React from "react";
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 import About from './components/About';
 import TargetBetterPrice from './components/TargetApp/TargetBetterPrice';
 import SaurianTranslator from './components/SaurianApp/SaurianTranslator';
+import SortingAlgorithms from "./components/SortingApp/SortingAlgorithms";
 import NavBar from './components/NavBar';
-import Home from "./components/Home";
-import { Routes,Route, Link } from "react-router-dom";
+import { Routes,Route} from "react-router-dom";
 import Footer from "./components/Footer/Footer";
 
   function App () {
@@ -20,6 +17,7 @@ import Footer from "./components/Footer/Footer";
           <Route exact path="/About" element={<About/>}/>
           <Route exact path="/TargetBetterPrice" element={<TargetBetterPrice/>}/>
           <Route exact path="/SaurianTranslator" element={<SaurianTranslator/>}/>
+          <Route exact path="/SortingAlgorithms" element={<SortingAlgorithms/>}/>
         </Routes>
         <Footer></Footer>
         </>

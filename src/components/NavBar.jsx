@@ -1,7 +1,4 @@
 import React from "react";
-import About from './About';
-import TargetBetterPrice from './TargetApp/TargetBetterPrice';
-import SaurianTranslator from './SaurianApp/SaurianTranslator';
 import './styles.css'
 import { Link } from "react-router-dom";
 

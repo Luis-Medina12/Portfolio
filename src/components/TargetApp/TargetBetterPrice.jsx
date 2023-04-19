@@ -3,14 +3,12 @@ import List from "./components 2/List/List";
 import Map from "./components 2/Map/Map";
 import useStyles from './components 2/Headers/styles'
 import { Autocomplete, Data } from "@react-google-maps/api";
-import { Toolbar, AppBar, Typography, InputBase, Box, Button, CssBaseline, Grid } from "@material-ui/core";
+import { Grid } from "@material-ui/core";
 import MoneyOffIcon from '@material-ui/icons/MoneyOff';
-import {getStores, getProduct} from "./components 2/dataManagement/Data";
+import { getStores, getProduct, getTaxRate } from "./components 2/dataManagement/Data";
 import Instructions from "./components 2/Instructions/Instructions";
 import { productResp} from './components 2/dataManagement/ProductData';
 import { locationsResp } from "./components 2/dataManagement/LocationData";
-import {getTaxRate} from './components 2/dataManagement/Data'
-import axios from 'axios';
 
 function OutputData(address, storeName, price, distance, taxrate, lon, lat){
     this.address = address;

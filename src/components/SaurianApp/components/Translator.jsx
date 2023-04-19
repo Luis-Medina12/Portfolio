@@ -37,10 +37,6 @@ while(i< SAURIANARR.length){
 const englishToSaurian = (original, language) =>{
     const trans = original.split("");
     let nounRecognition = false;
-    if(trans.includes('y') && language === "SAURIAN"){
-        alert("Input contains 'y' or 'Y', please remove as this does not exist within the Saurian language.")
-        return '';
-    }
     
     for(let i = 0; i<trans.length; i++){
         if(nounRecognition && trans[i].charAt(0) == ' '){
@@ -65,6 +61,9 @@ const englishToSaurian = (original, language) =>{
                         trans[i] = 'O';
                     }
                 }else{
+                    if(trans[i] === 'y' || trans[i] === 'Y'){
+                        alert("Input contains 'y' or 'Y', please remove as this does not exist within the Saurian language.")
+                    }
                     // Given Saurian returns English
                     trans[i] = hashedSaur.get(trans[i]);
                 }
