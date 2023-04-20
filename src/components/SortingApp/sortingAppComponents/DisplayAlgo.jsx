@@ -8,9 +8,17 @@ import QuickSort from "./QuickSort";
 import SelectionSort from "./SelectionSort";
 
 function DisplayAlgo(input){
+
+    let unsortedArray = [2,3,4,1];
+    let sortedArray =[];
+    let startTime;
+    let endTime;
     switch(input.algo){
         case 'bubble':
-            return <BubbleSort/>;
+            startTime = performance.now();
+            sortedArray = BubbleSort(unsortedArray);
+            endTime = performance.now();
+            break;
         case 'cocktail':
             return <h1>cocktail</h1>;
         case 'counting':
@@ -24,6 +32,31 @@ function DisplayAlgo(input){
         case 'selection':
             return <h1>selection</h1>;
     }
+
+    return(
+        <div className = "algo-container">
+            
+            <label for= "unsorted-array">Randomly Generated and Unsorted Array:</label>
+            <div className="algo-list" id="unsorted-array">This is where the unsorted list goes</div>
+            
+            <label for= "sorted-array">Sorting Algorithm Results:</label>
+            <div className="algo-list" id="sorted-array">results of sort</div>
+
+            <div className="algo-results-container">
+                <button className="sort-button">SORT</button>
+                <div className="algo-results" placeholder="elapsed Time"></div>
+            </div>
+            
+            {/* <div className="algo-visualizer">
+                <div >----------------------------------------------------------------------------------------------------</div>
+                <div >------------------------------------------------------------------------------------------</div>
+                <div >--------------------------------------------------------------------------------</div>
+                <div>{sortedArray}</div>
+                
+             </div> */}
+            
+        </div>
+    )
 }
 
 export default DisplayAlgo;
