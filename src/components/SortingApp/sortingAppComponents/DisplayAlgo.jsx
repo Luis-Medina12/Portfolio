@@ -9,15 +9,23 @@ import SelectionSort from "./SelectionSort";
 
 function DisplayAlgo(input){
 
-    let unsortedArray = [2,3,4,1];
-    let sortedArray =[];
+    let unsortedArray = [];
+
+    for(let i =0; i<100; i++){
+        unsortedArray[i] = i+1;
+    }
     let startTime;
     let endTime;
+    startTime = performance.now();
+    let sortedArray =shuffle(unsortedArray);
+    endTime = performance.now();
+    
+
     switch(input.algo){
         case 'bubble':
-            startTime = performance.now();
-            sortedArray = BubbleSort(unsortedArray);
-            endTime = performance.now();
+            
+            // sortedArray = BubbleSort(unsortedArray);
+            
             break;
         case 'cocktail':
             return <h1>cocktail</h1>;
@@ -37,15 +45,16 @@ function DisplayAlgo(input){
         <div className = "algo-container">
             
             <label for= "unsorted-array">Randomly Generated and Unsorted Array:</label>
-            <div className="algo-list" id="unsorted-array">This is where the unsorted list goes</div>
+            <div className="algo-list" id="unsorted-array">{unsortedArray.toString()}</div>
             
             <label for= "sorted-array">Sorting Algorithm Results:</label>
-            <div className="algo-list" id="sorted-array">results of sort</div>
+            <div className="algo-list" id="sorted-array">{sortedArray.toString()}</div>
 
             <div className="algo-results-container">
                 <button className="sort-button">SORT</button>
-                <div className="algo-results" placeholder="elapsed Time"></div>
+                <div className="algo-results">Elapsed Time: {endTime-startTime}</div>
             </div>
+            <div></div>
             
             {/* <div className="algo-visualizer">
                 <div >----------------------------------------------------------------------------------------------------</div>
@@ -58,5 +67,25 @@ function DisplayAlgo(input){
         </div>
     )
 }
+
+function shuffle(array) {
+    let currentIndex = array.length;
+    let newArr = [...array];
+    let randomIndex;
+  
+    // While there remain elements to shuffle.
+    while (currentIndex != 0) {
+  
+      // Pick a remaining element.
+      randomIndex = Math.floor(Math.random() * currentIndex);
+      currentIndex--;
+  
+      // And swap it with the current element.
+      [newArr[currentIndex], newArr[randomIndex]] = [
+        newArr[randomIndex], newArr[currentIndex]];
+    }
+  
+    return newArr;
+  }
 
 export default DisplayAlgo;
