@@ -17,7 +17,7 @@ import Footer from "./components/Footer/Footer";
           <Route exact path="/About" element={<About/>}/>
           <Route exact path="/TargetBetterPrice" element={<TargetBetterPrice/>}/>
           <Route exact path="/SaurianTranslator" element={<SaurianTranslator/>}/>
-          <Route exact path="/SortingAlgorithms" element={<SortingAlgorithms/>}/>
+          {/* <Route exact path="/SortingAlgorithms" element={<SortingAlgorithms/>}/> */}
         </Routes>
         <Footer></Footer>
         </>

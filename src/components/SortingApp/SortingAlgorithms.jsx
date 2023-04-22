@@ -13,7 +13,7 @@ function SortingAlgorithms(){
         <div className="algo-app">
             <div>
                 <label for="algoSelect">Choose an algorithm: </label>
-                {/* drop down menu for selecting algo */}
+                
                 <select name="algoSelect" id="algoSelect" onChange={handleAlgoChange}>
                     <option value="" selected disabled>Select an Algorithm</option>
                     <option value="bubble" >Bubble Sort</option>

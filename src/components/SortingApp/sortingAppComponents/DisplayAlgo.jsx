@@ -1,4 +1,4 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import BubbleSort from "./BubbleSort";
 import CocktailSort from "./CockTailSort";
 import CountingSort from "./CountingSort";
@@ -7,62 +7,62 @@ import InsertionSort from "./InsertionSort";
 import QuickSort from "./QuickSort";
 import SelectionSort from "./SelectionSort";
 
+// const [unsortedArray,setUnsortedArray] = useState([]);
+// const [sortedArray, setSortedArray] = useState([]);
+// const [elapsedtime, setElapsedTime] = useState();
+
+
 function DisplayAlgo(input){
 
-    let unsortedArray = [];
-
-    for(let i =0; i<100; i++){
+    for(let i =0; i<20; i++){
         unsortedArray[i] = i+1;
     }
+    shuffle(unsortedArray);
     let startTime;
     let endTime;
-    startTime = performance.now();
-    let sortedArray =shuffle(unsortedArray);
-    endTime = performance.now();
-    
+    console.log("shuffled:", unsortedArray.toString())
 
-    switch(input.algo){
-        case 'bubble':
-            
-            // sortedArray = BubbleSort(unsortedArray);
-            
-            break;
-        case 'cocktail':
-            return <h1>cocktail</h1>;
-        case 'counting':
-            return <h1>counting</h1>;
-        case 'heap':
-            return <h1>heap</h1>;
-        case 'insertion':
-            return <h1>insertion</h1>;
-        case 'quick':
-            return <h1>quick</h1>;
-        case 'selection':
-            return <h1>selection</h1>;
+    function handleSort(){
+        switch(input.algo){
+            case 'bubble':
+                startTime = performance.now();
+                setSortedArray(BubbleSort(unsortedArray.slice(0)));
+                endTime = performance.now();
+                setElapsedTime(endTime-startTime);
+                break;
+            case 'cocktail':
+                return <h1>cocktail</h1>;
+            case 'counting':
+                return <h1>counting</h1>;
+            case 'heap':
+                return <h1>heap</h1>;
+            case 'insertion':
+                return <h1>insertion</h1>;
+            case 'quick':
+                return <h1>quick</h1>;
+            case 'selection':
+                return <h1>selection</h1>;
+        }
     }
+
+    return 0;
 
     return(
         <div className = "algo-container">
             
             <label for= "unsorted-array">Randomly Generated and Unsorted Array:</label>
             <div className="algo-list" id="unsorted-array">{unsortedArray.toString()}</div>
-            
-            <label for= "sorted-array">Sorting Algorithm Results:</label>
-            <div className="algo-list" id="sorted-array">{sortedArray.toString()}</div>
 
             <div className="algo-results-container">
-                <button className="sort-button">SORT</button>
-                <div className="algo-results">Elapsed Time: {endTime-startTime}</div>
+                <button className="sort-button" onClick={handleSort()}>SORT</button>
+                <div className="algo-results">Elapsed Time: {elapsedtime}</div>
             </div>
+            {sortedArray.length!=0 && 
+                <>
+                    <label for= "sorted-array">Sorting Algorithm Results:</label>
+                    <div className="algo-list" id="sorted-array">{sortedArray.toString()}</div>
+                </>}
             <div></div>
-            
-            {/* <div className="algo-visualizer">
-                <div >----------------------------------------------------------------------------------------------------</div>
-                <div >------------------------------------------------------------------------------------------</div>
-                <div >--------------------------------------------------------------------------------</div>
-                <div>{sortedArray}</div>
-                
-             </div> */}
             
         </div>
     )
@@ -70,7 +70,6 @@ function DisplayAlgo(input){
 
 function shuffle(array) {
     let currentIndex = array.length;
-    let newArr = [...array];
     let randomIndex;
   
     // While there remain elements to shuffle.
@@ -81,11 +80,11 @@ function shuffle(array) {
       currentIndex--;
   
       // And swap it with the current element.
-      [newArr[currentIndex], newArr[randomIndex]] = [
-        newArr[randomIndex], newArr[currentIndex]];
+      [array[currentIndex], array[randomIndex]] = [
+        array[randomIndex], array[currentIndex]];
     }
   
-    return newArr;
+    return array;
   }
 
 export default DisplayAlgo;
