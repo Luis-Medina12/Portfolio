@@ -7,28 +7,47 @@ import InsertionSort from "./InsertionSort";
 import QuickSort from "./QuickSort";
 import SelectionSort from "./SelectionSort";
 
-// const [unsortedArray,setUnsortedArray] = useState([]);
-// const [sortedArray, setSortedArray] = useState([]);
-// const [elapsedtime, setElapsedTime] = useState();
 
+// setUnsortedArray(tempArr.slice(0));
+
+let startTime;
+let endTime;
+let totalTime;
 
 function DisplayAlgo(input){
+    const [unsortedArray,setUnsortedArray] = useState([]);
+    const [sortedArray,setSortedArray] = useState([]);
+    // const [elapsedtime, setElapsedTime] = useState(0);
+    let tempArr = [];
 
-    for(let i =0; i<20; i++){
-        unsortedArray[i] = i+1;
+    function handleunsroted(){
+        console.log("handle unsorted enetered")
+        
+        for(let i =0; i<20; i++){
+            tempArr[i] = i+1;
+        }
+        shuffle(tempArr);
+
+        setUnsortedArray(tempArr.slice(0));
     }
-    shuffle(unsortedArray);
-    let startTime;
-    let endTime;
-    console.log("shuffled:", unsortedArray.toString())
+
+   // console.log("shuffled:", tempArr.toString())
 
     function handleSort(){
         switch(input.algo){
             case 'bubble':
+                console.log("entered bubble sort");
                 startTime = performance.now();
-                setSortedArray(BubbleSort(unsortedArray.slice(0)));
+                const temp = unsortedArray.splice(0);
+                const result = BubbleSort(temp);
+                setSortedArray(result);
+                console.log(sortedArray);
                 endTime = performance.now();
-                setElapsedTime(endTime-startTime);
+                
+                // console.log(sortedArray.toString());
+
+                // totalTime = endTime-startTime;
+                // console.log(totalTime);
                 break;
             case 'cocktail':
                 return <h1>cocktail</h1>;
@@ -45,23 +64,25 @@ function DisplayAlgo(input){
         }
     }
 
-    return 0;
-
     return(
         <div className = "algo-container">
             
             <label for= "unsorted-array">Randomly Generated and Unsorted Array:</label>
-            <div className="algo-list" id="unsorted-array">{unsortedArray.toString()}</div>
+            <div className="algo-list" id="unsorted-array">{unsortedArray}</div>
 
             <div className="algo-results-container">
-                <button className="sort-button" onClick={handleSort()}>SORT</button>
-                <div className="algo-results">Elapsed Time: {elapsedtime}</div>
+                
+                <button className="sort-button" onClick={handleunsroted}>Generate Array</button>
+                <button className="sort-button" onClick={handleSort}>{input.algo} Sort Array</button>
+
+                <div className="algo-results">Elapsed Time: </div>
             </div>
-            {sortedArray.length!=0 && 
+            {sortedArray.length==0 &&  
                 <>
                     <label for= "sorted-array">Sorting Algorithm Results:</label>
                     <div className="algo-list" id="sorted-array">{sortedArray.toString()}</div>
-                </>}
+                </>
+            }
             <div></div>
             
         </div>

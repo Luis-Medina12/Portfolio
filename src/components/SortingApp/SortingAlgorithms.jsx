@@ -33,8 +33,4 @@ function SortingAlgorithms(){
     )
 }
 
-function sortThis(){
-    return 0;
-}
-
 export default SortingAlgorithms;
