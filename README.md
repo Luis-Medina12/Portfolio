@@ -25,8 +25,8 @@ Something I'm still working on is centralizing the different styles of each page
 #### On the Target App
 The project is mostly functional at this point but I’m having issues with the speed at which it calls the APIs and the usage of google maps. On the API side, the program is exceeding the call time limit of the Target API resulting in errors. One possible solution is to set an interval between calls, or simply create a file containing pre-determined data. I may go down the pre-determined data route as it will make it easier to demo the project. On the google maps side, I have been unable to determine what is causing it to error out and subsequently crash the program, so until then it will simply display the list of the results. 
 
-
 #### On the Saurian App
 This project has been easy to work with due to the simple nature of it. Most of the issues I ran into were UI/UX related and were inevitably resolved by further expanding my knowledge of front-end development. At some point I would like to make the UI on the input box and buttons to be a bit "prettier", but for now the simple layout works.
 
-(04/23/23) - I have completed the partial noun recognition, but not withotu encountering a few issues. Thinking of a way to avoid detection of capitalized words at the beginning of a sentance was the biggest challenge. It turns out  I was overthinking the whole thing and a simple if statement solved the issue.
+(04/23/23) - I have completed the partial noun recognition, but not without encountering a few issues. Thinking of a way to avoid detection of capitalized words at the beginning of a sentence was the biggest challenge. It turns out I was overthinking the whole thing and a simple if statement solved the issue. 
+
