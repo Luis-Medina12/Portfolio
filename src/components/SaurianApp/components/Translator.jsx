@@ -1,7 +1,3 @@
-
-
-//TODO: Need to add condition to transition between language translating
-
 const Translator = (originalText) =>{
 
     if(originalText.text!= null){
@@ -43,7 +39,12 @@ const englishToSaurian = (original, language) =>{
             nounRecognition = false;
         }
         if(i!==0 && trans[i].charCodeAt(0)>=65 && trans[i].charCodeAt(0)<=90 && trans[i-1] === ' ' && trans[i-2] !== '.'){
-            nounRecognition = true
+            if(trans[i-2] === '.' || trans[i-2] === '?' || trans[i-2] === '!'){
+                nounRecognition = false
+            }else{
+                nounRecognition = true
+            }
+            
         }
         
         if(!nounRecognition){
