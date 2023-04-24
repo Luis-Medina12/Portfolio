@@ -28,3 +28,6 @@ The project is mostly functional at this point but I’m having issues with the 
 
 #### On the Saurian App
 This project has been easy to work with due to the simple nature of it. Most of the issues I ran into were UI/UX related and were inevitably resolved by further expanding my knowledge of front-end development. At some point I would like to make the UI on the input box and buttons to be a bit "prettier", but for now the simple layout works.
+
+(04/23/23)
+I have completed the partial noun recognition, but not withotu encountering a few issues. Thinking of a way to avoid detection of capitalized words at the beginning of a sentance was the biggest challenge. It turns out  I was overthinking the whole thing and a simple if statement solved the issue.
