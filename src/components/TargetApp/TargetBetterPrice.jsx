@@ -9,6 +9,7 @@ import { getStores, getProduct, getTaxRate } from "./components 2/dataManagement
 import Instructions from "./components 2/Instructions/Instructions";
 import { productResp} from './components 2/dataManagement/ProductData';
 import { locationsResp } from "./components 2/dataManagement/LocationData";
+import { Helmet } from "react-helmet";
 
 function OutputData(address, storeName, price, distance, taxrate, lon, lat){
     this.address = address;
@@ -111,6 +112,8 @@ function TargetBetterPrice() {
 
   return (
     <>
+    <Helmet><title>Target Better Price</title></Helmet>
+
     {/* <div className="targetResultsPage"> */}
     <nav className="NavBarTarget"> 
         <div className="TargetName">

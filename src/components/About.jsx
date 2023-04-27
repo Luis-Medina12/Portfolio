@@ -1,9 +1,10 @@
 import React from "react";
-
+import { Helmet } from "react-helmet";
 
 export default function About() {
     return(
         <div className="About">
+            <Helmet><title>About Me</title></Helmet>
             <h1>About Me</h1>
             <div className="myInfo">
                 <p>Hey there! My name is Luis Medina 👋 I am an Engineer at heart, passionate creator, tech enthusiast, and Marvel movie loving nerd!</p>

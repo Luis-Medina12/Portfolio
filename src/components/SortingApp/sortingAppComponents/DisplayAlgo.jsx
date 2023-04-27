@@ -17,10 +17,11 @@ let totalTime;
 function DisplayAlgo(input){
     const [unsortedArray,setUnsortedArray] = useState([]);
     const [sortedArray,setSortedArray] = useState([]);
-    // const [elapsedtime, setElapsedTime] = useState(0);
+    const [elapsedtime, setElapsedTime] = useState(performance.now());
     let tempArr = [];
 
-    function handleunsroted(){
+    function handleUnsroted(event){
+        event.preventDefault();
         console.log("handle unsorted enetered")
         
         for(let i =0; i<20; i++){
@@ -33,21 +34,19 @@ function DisplayAlgo(input){
 
    // console.log("shuffled:", tempArr.toString())
 
-    function handleSort(){
+    function handleSort(event){
+        event.preventDefault();
         switch(input.algo){
             case 'bubble':
                 console.log("entered bubble sort");
                 startTime = performance.now();
-                const temp = unsortedArray.splice(0);
-                const result = BubbleSort(temp);
-                setSortedArray(result);
+                setSortedArray(BubbleSort(unsortedArray.splice(0)));
                 console.log(sortedArray);
                 endTime = performance.now();
                 
-                // console.log(sortedArray.toString());
+                console.log(sortedArray.toString());
 
-                // totalTime = endTime-startTime;
-                // console.log(totalTime);
+                setElapsedTime(endTime-startTime);
                 break;
             case 'cocktail':
                 return <h1>cocktail</h1>;
@@ -72,17 +71,15 @@ function DisplayAlgo(input){
 
             <div className="algo-results-container">
                 
-                <button className="sort-button" onClick={handleunsroted}>Generate Array</button>
+                <button className="sort-button" onClick={handleUnsroted}>Generate Array</button>
                 <button className="sort-button" onClick={handleSort}>{input.algo} Sort Array</button>
 
-                <div className="algo-results">Elapsed Time: </div>
+                <div className="algo-results">Elapsed Time: {elapsedtime}</div>
             </div>
-            {sortedArray.length==0 &&  
-                <>
-                    <label for= "sorted-array">Sorting Algorithm Results:</label>
-                    <div className="algo-list" id="sorted-array">{sortedArray.toString()}</div>
-                </>
-            }
+            
+            <label for= "sorted-array">Sorting Algorithm Results:</label>
+            <div className="algo-list" id="sorted-array">{sortedArray.toString()}</div>
+            
             <div></div>
             
         </div>

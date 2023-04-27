@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import DisplayAlgo from "./sortingAppComponents/DisplayAlgo";
-
+import { Helmet } from "react-helmet";
 function SortingAlgorithms(){
     const [input, setInput] = useState("");
 
@@ -11,6 +11,7 @@ function SortingAlgorithms(){
     
     return (
         <div className="algo-app">
+            <Helmet><title>Sorting Algorithms</title></Helmet>
             <div>
                 <label for="algoSelect">Choose an algorithm: </label>
                 

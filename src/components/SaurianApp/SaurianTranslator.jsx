@@ -1,3 +1,4 @@
+import { Helmet } from 'react-helmet';
 import '../SaurianApp/App.css';
 import Header from './components/Header'
 import Translator from './components/Translator';
@@ -32,7 +33,7 @@ export default function SaurianTranslator () {
   
     return (
       <div className="App">
-  
+        <Helmet>Saurian Translator</Helmet>
         <Header/>
         
         <body className = "App-body">
