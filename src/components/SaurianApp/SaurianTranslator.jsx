@@ -1,5 +1,4 @@
 import { Helmet } from 'react-helmet';
-import '../SaurianApp/App.css';
 import Header from './components/Header'
 import Translator from './components/Translator';
 import React, {useEffect, useState} from "react";

@@ -1,14 +1,14 @@
 import React, {useEffect, useState} from "react";
-import List from "./components 2/List/List";
-import Map from "./components 2/Map/Map";
-import useStyles from './components 2/Headers/styles'
+import List from "./targetComponents/List/List";
+import Map from "./targetComponents/Map/Map";
+import useStyles from './targetComponents/Headers/styles'
 import { Autocomplete, Data } from "@react-google-maps/api";
 import { Grid } from "@material-ui/core";
 import MoneyOffIcon from '@material-ui/icons/MoneyOff';
-import { getStores, getProduct, getTaxRate } from "./components 2/dataManagement/Data";
-import Instructions from "./components 2/Instructions/Instructions";
-import { productResp} from './components 2/dataManagement/ProductData';
-import { locationsResp } from "./components 2/dataManagement/LocationData";
+import { getStores, getProduct, getTaxRate } from "./targetComponents/dataManagement/Data";
+import Instructions from "./targetComponents/Instructions/Instructions";
+import { productResp} from './targetComponents/dataManagement/ProductData';
+import { locationsResp } from "./targetComponents/dataManagement/LocationData";
 import { Helmet } from "react-helmet";
 
 function OutputData(address, storeName, price, distance, taxrate, lon, lat){
