@@ -2,6 +2,7 @@ import React, {useEffect, useState} from "react";
 import { Helmet } from "react-helmet";
 import BubbleSort from './sortingAppComponents/BubbleSort'
 import CocktailSort from "./sortingAppComponents/CocktailSort";
+import CountingSort from "./sortingAppComponents/CountingSort";
 
 let startTime;
 let endTime;
@@ -45,6 +46,11 @@ function SortingAlgorithms(){
                 setElapsedTime(endTime-startTime);
                 break;
             case 'counting':
+                startTime = performance.now();
+                setSortedArray(CountingSort(unsortedArray.slice(0)));
+                endTime = performance.now();
+
+                setElapsedTime(endTime-startTime);
                 break;
             case 'heap':
                 break;

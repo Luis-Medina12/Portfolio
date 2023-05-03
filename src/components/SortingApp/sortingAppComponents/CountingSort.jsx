@@ -2,7 +2,31 @@ import React from "react";
 
 function CountingSort(input){
 
-    return 0;
+    // given an array, go thorugh array and count number of instances of a number
+
+    //intialize array and fill with zeros
+    let countArr = [];
+    for(let i=0; i<=input.length; i++){countArr[i] = 0;}
+
+    console.log("empty: ",countArr)
+
+    for(let k=0; k<input.length; k++){
+        countArr[input[k]] = countArr[input[k]]+1;
+    }
+    
+    // pos will be index of solution Arr
+    let pos = 0;
+
+    // j will be index of counting array
+    for(let j = 0; j<= input.length; j++){
+        while(countArr[j]!==0){
+            input[pos] = j;
+            countArr[j] = countArr[j]-1;
+            pos++;
+        }
+    }
+
+    return input;
 }
 
 export default CountingSort;
