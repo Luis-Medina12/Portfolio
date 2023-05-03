@@ -1,9 +1,8 @@
 import React from "react";
 
-function CountingSort(){
-    return(
-        <h1>CountingSort</h1>
-    )
+function CountingSort(input){
+
+    return 0;
 }
 
 export default CountingSort;

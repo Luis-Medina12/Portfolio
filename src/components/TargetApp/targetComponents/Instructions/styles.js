@@ -3,7 +3,7 @@ import { makeStyles } from '@material-ui/core/styles';
 export default makeStyles((theme) => ({
   container: {
     padding: '10px', background: 'rgb(204, 0, 0)', display: 'flex', alignItems: 'center', minHeight: '85vh', fontSize: '15px',
-    margin: '10px', borderRadius: '10px', flexFlow: 'column', color:'white', marginTop:'20px',
+    margin: '10px', borderRadius: '10px', flexFlow: 'column', color:'white', 
   },
   explain: {
     padding: '10px', display: 'flex',  justifyContent: 'center', fontSize: '20px', margin: '10px', 

@@ -41,15 +41,11 @@ function DisplayAlgo(input){
                 console.log("entered bubble sort");
                 startTime = performance.now();
                 setSortedArray(BubbleSort(unsortedArray.splice(0)));
-                console.log(sortedArray);
                 endTime = performance.now();
-                
-                console.log(sortedArray.toString());
-
                 setElapsedTime(endTime-startTime);
                 break;
             case 'cocktail':
-                return <h1>cocktail</h1>;
+                break;
             case 'counting':
                 return <h1>counting</h1>;
             case 'heap':
