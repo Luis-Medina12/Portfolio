@@ -3,6 +3,8 @@ import React from "react";
 function CountingSort(input){
 
     // given an array, go thorugh array and count number of instances of a number
+    // once we know how many instances of a number there are, fill solution array
+    // in order 
 
     //intialize array and fill with zeros
     let countArr = [];
