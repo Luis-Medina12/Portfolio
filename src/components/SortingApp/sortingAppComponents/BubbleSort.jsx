@@ -5,7 +5,6 @@ function BubbleSort(input){
     // need to compare two numbers and swap if left > right
     // need to do this until it does an entire pass without swapping
     let swap = true;
-    console.log("entered bubbleSort")
     if(unsortedArr.length <=1){
         return unsortedArr;
     }

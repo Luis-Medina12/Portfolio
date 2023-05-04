@@ -10,8 +10,6 @@ function CountingSort(input){
     let countArr = [];
     for(let i=0; i<=input.length; i++){countArr[i] = 0;}
 
-    console.log("empty: ",countArr)
-
     for(let k=0; k<input.length; k++){
         countArr[input[k]] = countArr[input[k]]+1;
     }

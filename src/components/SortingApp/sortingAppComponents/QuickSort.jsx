@@ -1,9 +1,9 @@
 import React from "react";
 
-function QuickSort(){
-    return(
-        <h1>QuickSort</h1>
-    )
+function QuickSort(input){
+    console.log("quick sort")
+    
+    return input;
 }
 
 export default QuickSort;

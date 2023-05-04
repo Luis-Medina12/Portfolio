@@ -1,9 +1,11 @@
 import React from "react";
 
-function HeapSort(){
-    return(
-        <h1>HeapSort</h1>
-    )
+function HeapSort(input){
+    
+    console.log("entered heap")
+
+    return input;
+
 }
 
 export default HeapSort;

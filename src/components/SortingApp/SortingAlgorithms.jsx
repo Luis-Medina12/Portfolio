@@ -3,6 +3,8 @@ import { Helmet } from "react-helmet";
 import BubbleSort from './sortingAppComponents/BubbleSort'
 import CocktailSort from "./sortingAppComponents/CocktailSort";
 import CountingSort from "./sortingAppComponents/CountingSort";
+import HeapSort from "./sortingAppComponents/HeapSort";
+import SelectionSort from "./sortingAppComponents/SelectionSort";
 
 let startTime;
 let endTime;
@@ -19,52 +21,61 @@ function SortingAlgorithms(){
     function handleUnsroted(){
         // event.preventDefault();
         
-        for(let i =0; i<20; i++){
-            tempArr[i] = i+1;
-        }
-        shuffle(tempArr);
+        // for(let i =0; i<20; i++){
+        //     tempArr[i] = i+1;
+        // }
+        // shuffle(tempArr);
 
-        setUnsortedArray(tempArr.slice(0));
+        setUnsortedArray(Array.from({length: 20}, () => Math.floor(Math.random() * 50)));
     }
 
    // console.log("shuffled:", tempArr.toString())
 
     function handleSort(){
         switch(input){
-            case 'bubble':
+            case 'Bubble':
                 startTime = performance.now();
                 setSortedArray(BubbleSort(unsortedArray.slice(0)));
                 endTime = performance.now();
 
                 setElapsedTime(endTime-startTime);
                 break;
-            case 'cocktail':
+            case 'Cocktail':
                 startTime = performance.now();
                 setSortedArray(CocktailSort(unsortedArray.slice(0)));
                 endTime = performance.now();
 
                 setElapsedTime(endTime-startTime);
                 break;
-            case 'counting':
+            case 'Counting':
                 startTime = performance.now();
                 setSortedArray(CountingSort(unsortedArray.slice(0)));
                 endTime = performance.now();
 
                 setElapsedTime(endTime-startTime);
                 break;
-            case 'heap':
+            case 'Heap':
+                
                 break;
-            case 'insertion':
+            case 'Insertion':
                 break;
-            case 'quick':
+            case 'Quick':
                 break;
-            case 'selection':
+            case 'Selection':
+                startTime = performance.now();
+                setSortedArray(SelectionSort(unsortedArray.slice(0)));
+                endTime = performance.now();
+
+                setElapsedTime(endTime-startTime);
                 break;
         }
     }
 
     const handleAlgoChange = () => {
         setInput(document.getElementById("algoSelect").value);
+        setSortedArray([]);
+        setUnsortedArray([]);
+        setElapsedTime(0);
       };
 
       const handleReset = () =>{
@@ -82,14 +93,14 @@ function SortingAlgorithms(){
                 
                 <select name="algoSelect" id="algoSelect" onChange={handleAlgoChange}>
                     <option value="" selected disabled>Select an Algorithm</option>
-                    <option value="bubble" >Bubble Sort</option>
-                    <option value="cocktail">Cocktail Sort</option>
-                    <option value="counting">Counting Sort</option>
+                    <option value="Bubble" >Bubble Sort</option>
+                    <option value="Cocktail">Cocktail Sort</option>
+                    <option value="Counting">Counting Sort</option>
                     <option value="Heap">Heap Sort</option>
-                    <option value="insertion">Insertion Sort</option>
-                    <option value="quick">Quick Sort</option>
-                    <option value="selection">Selection Sort</option>
-                    <option value ="all" disabled>All Sorting Algos</option>
+                    <option value="Insertion">Insertion Sort</option>
+                    <option value="Quick">Quick Sort</option>
+                    <option value="Selection">Selection Sort</option>
+                    <option value ="All" disabled>All Sorting Algos</option>
                 </select>
             </div>
 

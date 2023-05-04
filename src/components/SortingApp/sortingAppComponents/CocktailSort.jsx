@@ -7,14 +7,11 @@ function CocktailSort(input){
 
     //it will do this until no swap is made, which indicates the array is sorted
 
-    console.log("Entered cocktail sort function");
-
     let unsortedArr = input;
     let swap = true;
     let direction = true;
     let beginning = 0;
     let end = unsortedArr.length-1;
-    console.log("unsorted:",unsortedArr);
     if(unsortedArr.length <=1){
         return unsortedArr;
     }
@@ -26,7 +23,7 @@ function CocktailSort(input){
         // direction =true -> traverse to the right, direction = false -> traverse to the left
         // each iteration largest will be pushed to its spot on the left, and smallest on the right
         if(direction){
-            console.log("To the right, right");
+            
             for(let i=0; i<=end;i++){
                 if(unsortedArr[i] > unsortedArr[i+1]){
                     let temp = unsortedArr[i]
