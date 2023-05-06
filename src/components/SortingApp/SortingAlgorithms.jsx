@@ -19,17 +19,14 @@ function SortingAlgorithms(){
     let tempArr = [];
 
     function handleUnsroted(){
-        // event.preventDefault();
-        
         // for(let i =0; i<20; i++){
         //     tempArr[i] = i+1;
         // }
-        // shuffle(tempArr);
+        
+        // setUnsortedArray(shuffle(tempArr));
 
         setUnsortedArray(Array.from({length: 20}, () => Math.floor(Math.random() * 50)));
     }
-
-   // console.log("shuffled:", tempArr.toString())
 
     function handleSort(){
         switch(input){
@@ -74,7 +71,6 @@ function SortingAlgorithms(){
     const handleAlgoChange = () => {
         setInput(document.getElementById("algoSelect").value);
         setSortedArray([]);
-        setUnsortedArray([]);
         setElapsedTime(0);
       };
 
@@ -125,7 +121,8 @@ function SortingAlgorithms(){
                     <button className="sort-button" onClick={handleReset}>Reset</button>
                     </div>
                 }
-
+                {/* For now this only displays the current elapsed time, but I will create a list of times 
+                to allow for easier tracking and comparion */}
                 {elapsedtime !=0 && <div className="algo-results">Elapsed Time: {elapsedtime} seconds</div>}
             </div>
         </div>

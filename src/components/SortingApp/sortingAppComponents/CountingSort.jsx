@@ -8,21 +8,26 @@ function CountingSort(input){
 
     //intialize array and fill with zeros
     let countArr = [];
-    for(let i=0; i<=input.length; i++){countArr[i] = 0;}
+    for(let i=0; i<=50; i++){countArr[i] = 0;}
+    console.log(countArr);
 
     for(let k=0; k<input.length; k++){
         countArr[input[k]] = countArr[input[k]]+1;
     }
+    console.log(countArr);
+    console.log(input);
     
     // pos will be index of solution Arr
     let pos = 0;
 
     // j will be index of counting array
-    for(let j = 0; j<= input.length; j++){
+    for(let j = 0; j<= 50; j++){
+
         while(countArr[j]!==0){
             input[pos] = j;
             countArr[j] = countArr[j]-1;
             pos++;
+            console.log("adding: ", j)
         }
     }
 
