@@ -1,6 +1,6 @@
 # This is my portfolio project that will be deployed using GitHub Pages
 
-It consists of (at this point) 3 pages: About Me, Target App, and Saurian App. I consider these two projects my most interesting, so they will remain center stage while other projects will be placed in a drop-down menu. 
+It consists of (at this point) 4 pages: About Me, Target Better Price, Saurian Translator, and a Sorting Algorithms demo page. I consider the Target and Saurian projects my most interesting, so they will remain center stage while other projects will be placed in a drop-down menu.
 
 ## Target Better Price App
 

@@ -6,17 +6,26 @@ import CountingSort from "./sortingAppComponents/CountingSort";
 import HeapSort from "./sortingAppComponents/HeapSort";
 import SelectionSort from "./sortingAppComponents/SelectionSort";
 
-let startTime;
-let endTime;
-let totalTime;
+let startTime =0.0;
+let endTime = 0.0;
+let tempArr = [];
+let counter = 1;
 
 function SortingAlgorithms(){
     const [input, setInput] = useState("");
-
+    
     const [unsortedArray,setUnsortedArray] = useState([]);
     const [sortedArray,setSortedArray] = useState([]);
-    const [elapsedtime, setElapsedTime] = useState(0);
-    let tempArr = [];
+    const [elapsedtime, setElapsedTime] = useState();
+    const [times, setTimes] = useState({
+        time:null,
+        type:null,
+        number:null,
+    })
+    
+    const listItems = tempArr.map((elapsed) =>
+        <p>{elapsed.type} in {elapsed.time}</p>
+    );
 
     function handleUnsroted(){
         // for(let i =0; i<20; i++){
@@ -29,27 +38,22 @@ function SortingAlgorithms(){
     }
 
     function handleSort(){
+
         switch(input){
             case 'Bubble':
                 startTime = performance.now();
                 setSortedArray(BubbleSort(unsortedArray.slice(0)));
                 endTime = performance.now();
-
-                setElapsedTime(endTime-startTime);
                 break;
             case 'Cocktail':
                 startTime = performance.now();
                 setSortedArray(CocktailSort(unsortedArray.slice(0)));
                 endTime = performance.now();
-
-                setElapsedTime(endTime-startTime);
                 break;
             case 'Counting':
                 startTime = performance.now();
                 setSortedArray(CountingSort(unsortedArray.slice(0)));
                 endTime = performance.now();
-
-                setElapsedTime(endTime-startTime);
                 break;
             case 'Heap':
                 
@@ -62,14 +66,16 @@ function SortingAlgorithms(){
                 startTime = performance.now();
                 setSortedArray(SelectionSort(unsortedArray.slice(0)));
                 endTime = performance.now();
-
-                setElapsedTime(endTime-startTime);
                 break;
+        }
+        setTimes({time:(endTime-startTime), type: input});
+        if(times.time!=null){
+            tempArr.push(times);
         }
     }
 
     const handleAlgoChange = () => {
-        setInput(document.getElementById("algoSelect").value);
+        setInput(document.getElementById("algoSelect").value)
         setSortedArray([]);
         setElapsedTime(0);
       };
@@ -123,7 +129,10 @@ function SortingAlgorithms(){
                 }
                 {/* For now this only displays the current elapsed time, but I will create a list of times 
                 to allow for easier tracking and comparion */}
-                {elapsedtime !=0 && <div className="algo-results">Elapsed Time: {elapsedtime} seconds</div>}
+                {/* {elapsedtime !=0 && <div className="algo-results">Elapsed Time: {elapsedtime} seconds</div>} */}
+                {/* <TimeList times = {tempArr}></TimeList> */}
+                {listItems}
+                {/* Bring in the List component from target app ans see if we can create a list of elapsed times */}
             </div>
         </div>
     )
