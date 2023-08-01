@@ -38,6 +38,8 @@ function SortingAlgorithms(){
 
     function handleSort(){
 
+        // TODO: implement quick and heap sort
+
         switch(input){
             case 'Bubble':
                 startTime = performance.now();
