@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import BubbleSort from "./BubbleSort";
-import CocktailSort from "./CockTailSort";
+import CocktailSort from "./CocktailSort";
 import CountingSort from "./CountingSort";
 import HeapSort from "./HeapSort";
 import InsertionSort from "./InsertionSort";
