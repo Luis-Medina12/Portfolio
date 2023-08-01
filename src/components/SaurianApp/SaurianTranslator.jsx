@@ -16,7 +16,6 @@ export default function SaurianTranslator () {
     }));
   };
 
-  // TODO: Should reset if language is swapped
   function switchLang() {
     reset();
     if(transLanguage === 'ENGLISH')
