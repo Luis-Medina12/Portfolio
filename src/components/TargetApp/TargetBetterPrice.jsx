@@ -21,6 +21,9 @@ function OutputData(address, storeName, price, distance, taxrate, lon, lat){
     this.lat = lat;
 }
 
+
+// ! TODO: need to fix bugs causing it to crash and use semantic elements
+
 function TargetBetterPrice() {
 
   const classes = useStyles();
@@ -176,7 +179,9 @@ function TargetBetterPrice() {
 
         {/* leaving map out for now, bug is causing it to crash */}
 
-        {/* //TODO: fix bug causing crash when loading map */}
+        {/* 
+        //TODO: fix bug causing crash when loading map 
+        */}
         
         {/* <Grid item xs={12} md = {7}>
         {responseData.length!== 0 &&
