@@ -1,15 +1,13 @@
 import React, {useState} from "react";
 import { Autocomplete } from "@react-google-maps/api";
-import {Toolbar, AppBar, Typography, InputBase, Box, Button} from "@material-ui/core";
-import SearchIcon from '@material-ui/icons/Search'
-import useStyles from './styles';
-import MoneyOffIcon from '@material-ui/icons/MoneyOff';
+import {Toolbar, AppBar, Typography, InputBase, Box, Button} from "@mui/material";
+import ManageSearchIcon from '@mui/icons-material/ManageSearch';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import styles from "./styles.css";
 import {getPlacesData} from '../api/index';
 import Stores from '../Stores/Stores'
 
 const Header = () => {
-    const classes = useStyles();
 
     const [input, setInput] = useState({
         zip: "",
@@ -56,15 +54,15 @@ const Header = () => {
 
     return (
         <AppBar position="static">
-            <Toolbar className = {classes.toolbar}>
-                <Typography variant="h4" className = {classes.title}>
-                    <MoneyOffIcon/>
+            <Toolbar className = "toolbar">
+                <Typography variant="h4" className = "title">
+                    <AttachMoneyIcon/>
                     Target Better Price
-                    <MoneyOffIcon/>
+                    <AttachMoneyIcon/>
                 </Typography>
                 <Box display = "flex">
-                        <div clasName = {classes.search}>
-                        <SearchIcon/>
+                        <div className = "search">
+                        <ManageSearchIcon/>
                             
                         <input
                         placeholder = "TCIN"
@@ -92,7 +90,7 @@ const Header = () => {
                         onChange={handleInputChange}
                         className= "inputBox"
                         />
-                        <Button variant="outlined" color="default" className={classes.submit} onClick = {handleSubmit}> Submit</Button>  
+                        <Button variant="outlined" color="default" className="submit" onClick = {handleSubmit}> Submit</Button>  
                         </div>
                         
                     

@@ -4,3 +4,63 @@
     padding: 10px 10px;
     margin-right: 20px;
   }
+
+.title{
+  display: none;
+}
+
+.search{
+  /* position: 'relative',
+  borderRadius: theme.shape.bord,
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  '&:hover': { backgroundColor: alpha(theme.palette.common.white, 0.25) },
+  marginRight: theme.spacing(2),
+  marginLeft: 0, */
+
+  position: relative;
+  border-radius: 10px;
+  background-color: white;
+  margin-right: 10px;
+  width: 100%;
+},
+.searchIcon{
+  /* padding: theme.spacing(0, 2), height: '100%', position: 'absolute', pointerEvents: 'none', display: 'flex', alignItems: 'flex-srart', justifyContent: 'center', */
+  padding: 10px;
+  height: 100%;
+  position: absolute;
+  pointer-events: none;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.inputRoot {
+  color: inherit;
+}
+
+.inputInput {
+  padding: 10px;
+  width: 100%; 
+  box-shadow: 2px 2px 2px black;
+  border-radius: 10px;
+  
+}
+
+.toolbar {
+  justify-content: center;
+  background-color: rgb(204, 0, 0);
+}
+
+.submit {  
+  /* color: 'white',
+  paddingLeft: '5px 5px', 
+  boxShadow: '2px 2px 2px black',
+  borderRadius: '10px',
+  fontSize: 'medium', */
+
+  color: white;
+  padding-left: 5px 5px;
+  box-shadow: 2px 2px 2px black;
+  border-radius: 10px;
+  font-size: medium;
+}

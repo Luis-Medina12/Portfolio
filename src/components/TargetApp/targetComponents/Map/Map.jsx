@@ -1,15 +1,15 @@
 import React, {useEffect, useState} from "react";
 import GoogleMapReact from "google-map-react";
-import {Paper, Typography, useMediaQuery} from '@material-ui/core'
-import LocationOnOutlineIcon from '@material-ui/icons/LocationOnOutlined'
-import HomeIcon from '@material-ui/icons/Home'
-import { Rating } from "@material-ui/lab";
+// import {Paper, Typography, useMediaQuery} from '@material-ui/core'
+// import LocationOnOutlineIcon from '@material-ui/icons/LocationOnOutlined'
+// import HomeIcon from '@material-ui/icons/Home'
+// import { Rating } from "@material-ui/lab";
 import './styles.css'
 
-import useStyles from './styles';
+// import useStyles from './styles';
 
 const Map = ({setCoordinates, setBounds, coordinates, stores, home}) => {
-    const classes = useStyles();
+    // const classes = useStyles();
 
     const defaultProps = {
         center: {

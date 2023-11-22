@@ -1,10 +1,9 @@
 import React, {useEffect, useState} from "react";
 import List from "./targetComponents/List/List";
 import DisplayMap from "./targetComponents/Map/DisplayMap";
-import useStyles from './targetComponents/Headers/styles'
-import { Autocomplete, Data } from "@react-google-maps/api";
-import { Grid } from "@material-ui/core";
-import MoneyOffIcon from '@material-ui/icons/MoneyOff';
+// import { Autocomplete, Data } from "@react-google-maps/api";
+import { Grid } from '@mui/material';
+import AttachMoneyIcon from '@mui/icons-material/AttachMoney';
 import { getStores, getProduct, getTaxRate } from "./targetComponents/dataManagement/Data";
 import Instructions from "./targetComponents/Instructions/Instructions";
 import { productResp} from './targetComponents/dataManagement/ProductData';
@@ -26,7 +25,7 @@ function OutputData(address, storeName, price, distance, taxrate, lon, lat){
 
 function TargetBetterPrice() {
 
-  const classes = useStyles();
+//   const classes = useStyles();
   const [coordinates, setCoordinates] = useState({});
   const [bounds, setBounds] = useState(null);
   const [responseData, setResponseData] = useState([]);
@@ -115,19 +114,20 @@ function TargetBetterPrice() {
 
 
   return (
+
     <>
     <Helmet><title>Target Better Price</title></Helmet>
 
-    {/* <div className="targetResultsPage"> */}
+    <div className="targetResultsPage">
+
     <nav className="NavBarTarget"> 
+        
         <div className="TargetName">
-          <MoneyOffIcon fontSize="large"/>
             <div >Target Better Price</div>
-          <MoneyOffIcon fontSize="large"/>
         </div>
 
-        <div>  
-            <input
+        <div>
+         <input
               placeholder = "TCIN"
               type="number"
               name="tcin"
@@ -154,16 +154,17 @@ function TargetBetterPrice() {
               className= "inputBox"
             />
 
-            <button onClick = {handleSubmit} > 
+            <button onClick={handleSubmit}> 
               Submit
             </button>
 
-            <button onClick = {handleReset} > 
+            <button onClick={handleReset}> 
               Reset
-            </button>
+            </button> 
 
-          </div>
-    </nav>
+          </div> 
+          
+    </nav> 
 
     {responseData.length === 0 && <Instructions/>}
 
@@ -179,10 +180,6 @@ function TargetBetterPrice() {
         <Grid md = {1}></Grid>
 
         {/* leaving map out for now, bug is causing it to crash */}
-
-        {/* 
-        //TODO: fix bug causing crash when loading map 
-        */}
         
         {/* <Grid item xs={12} md = {7}>
         {responseData.length!== 0 &&
@@ -196,7 +193,10 @@ function TargetBetterPrice() {
         </Grid> */}
       </Grid>
 
+      </div>
+
     </>
+
   )
 }
 

@@ -1,10 +1,10 @@
 import React, {useEffect, useState} from "react";
-import {Box, Typography, Button, Card, CardMedia, CardContent, CardActions, Chip} from '@material-ui/core';
-import LocationOnIcon from '@material-ui/icons/LocationOn';
-import PhoneIcon from '@material-ui/icons/Phone';
-import Rating from '@material-ui/lab/Rating';
-import useStyles from './styles';
-import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
+import {Box, Typography, Button, Card, CardMedia, CardContent, CardActions, Chip} from '@mui/material';
+// import LocationOnIcon from '@material-ui/icons/LocationOn';
+// import PhoneIcon from '@material-ui/icons/Phone';
+// import Rating from '@material-ui/lab/Rating';
+// import useStyles from './styles';
+// import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 
 
 // TODO: -  Cards are looking good layout-wise, but still need to do some tweaking to the way they look
@@ -25,7 +25,6 @@ import AttachMoneyIcon from '@material-ui/icons/AttachMoney';
 const PlaceDetails = ({store, currLoc}) => {
 
     const data = JSON.parse(JSON.stringify(store));
-    const classes = useStyles();
 
     const URL = 'https://images.foxtv.com/static.fox35orlando.com/www.fox35orlando.com/content/'+
                 'uploads/2020/08/932/524/New-Target-Orlando27.jpg?ve=1&tl=1';
@@ -38,31 +37,31 @@ const PlaceDetails = ({store, currLoc}) => {
                 image ={URL}
                 />
             <CardContent>
-                <Typography gutterBottom className = {classes.storeName}>{data.storeName}</Typography>
+                <Typography gutterBottom className = "storeName">{data.storeName}</Typography>
                 <div className="infoCard">
                     <div className="infoAddress">
-                        <Typography className = {classes.info}>Total Price</Typography>
+                        <Typography className = "info">Total Price</Typography>
                         <Typography gutterBottom 
-                                    className = {classes.results} 
+                                    className = "results-place" 
                                     align="justify">
                             ${(data.price+(data.price*data.taxrate)).toFixed(2)}
                         </Typography>
                     </div>
 
                     <div className="infoAddress">
-                    <Typography className = {classes.info}>Travel Distance</Typography>
+                    <Typography className = "info">Travel Distance</Typography>
                     <Typography gutterBottom 
-                                className = {classes.results} 
+                                className = "results-place"
                                 align="justify">
                         {data.distance} miles
                     </Typography>
                     </div>
 
                     <div className="infoAddress">
-                        <Typography className = {classes.info}>Address</Typography>
+                        <Typography className = "info">Address</Typography>
                         
                         <Typography gutterBottom 
-                            className = {classes.results} 
+                            className = "results-place"
                             align="justify">
                             <a href={"https://www.google.com/maps/dir/?api=1&origin="+currLoc.lat+","+
                             currLoc.lng+"&destination="+encodeURIComponent(data.address)} target="_blank">{data.address}

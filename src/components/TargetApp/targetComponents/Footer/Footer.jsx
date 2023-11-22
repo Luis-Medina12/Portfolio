@@ -1,11 +1,11 @@
-import useStyles from './styles';
-import {Typography} from "@material-ui/core";
+// import useStyles from './styles';
+import {Typography} from "@mui/material";
 
 const Footer = () => {
 
     const classes = useStyles();
     return(
-        <Typography className={classes.footer} variant = 'subtitle2'>© 2023 Medina development. All Rights Reserved</Typography>
+        <Typography className="footer" variant = 'subtitle2'>© 2023 Medina development. All Rights Reserved</Typography>
     )
 }
 

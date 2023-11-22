@@ -1,8 +1,8 @@
 import React from "react";
 import './App.css'
 import About from './components/About';
-import TargetBetterPrice from './components/TargetApp/TargetBetterPrice';
 import SaurianTranslator from './components/SaurianApp/SaurianTranslator';
+import TargetBetterPrice from './components/TargetApp/TargetBetterPrice';
 import SortingAlgorithms from "./components/SortingApp/SortingAlgorithms";
 import NavBar from './components/NavBar';
 import { Routes,Route} from "react-router-dom";
