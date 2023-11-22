@@ -308,7 +308,14 @@ label{
     width: 900px;
     margin: 10px;
     padding: 10px;
+<<<<<<< HEAD
     font-size: 30px;
+=======
+    display: flex;
+    flex-wrap: wrap;
+    overflow-wrap:anywhere;
+    justify-content: center;
+>>>>>>> 3c8fcaffdca069495af6c843c8bae69209c77c1c
 
 }
 .sort-button{
@@ -415,4 +422,13 @@ span:hover {
 
 .read-the-docs {
   color: #888;
+}
+
+.resultsWindow{
+  
+  overflow-y: auto;
+}
+
+.listItems{
+  background-color: yellow;
 }

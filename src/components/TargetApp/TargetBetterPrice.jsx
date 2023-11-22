@@ -21,6 +21,9 @@ function OutputData(address, storeName, price, distance, taxrate, lon, lat){
     this.lat = lat;
 }
 
+
+// ! TODO: need to fix bugs causing it to crash and use semantic elements
+
 function TargetBetterPrice() {
 
   const classes = useStyles();
@@ -48,6 +51,7 @@ function TargetBetterPrice() {
   const handleReset = (event) =>{
     event.preventDefault();
     setResponseData([]);
+    document.getElementById("tcin").data = '';
   }
 
 
@@ -127,6 +131,7 @@ function TargetBetterPrice() {
               placeholder = "TCIN"
               type="number"
               name="tcin"
+              id="tcin"
               onChange={handleInputChange}
               className= "inputBox"
             />
@@ -135,6 +140,7 @@ function TargetBetterPrice() {
               placeholder = "Home Zip"
               type="number"
               name="zip"
+              id="zip"
               onChange={handleInputChange}
               className= "inputBox"
             />
@@ -143,15 +149,16 @@ function TargetBetterPrice() {
               placeholder = "Distance"
               type="number"
               name="distance"
+              id="distance"
               onChange={handleInputChange}
               className= "inputBox"
             />
 
-            <button onClick = {handleSubmit}> 
+            <button onClick = {handleSubmit} > 
               Submit
             </button>
 
-            <button onClick = {handleReset}> 
+            <button onClick = {handleReset} > 
               Reset
             </button>
 
@@ -173,7 +180,9 @@ function TargetBetterPrice() {
 
         {/* leaving map out for now, bug is causing it to crash */}
 
-        {/* //TODO: fix bug causing crash when loading map */}
+        {/* 
+        //TODO: fix bug causing crash when loading map 
+        */}
         
         {/* <Grid item xs={12} md = {7}>
         {responseData.length!== 0 &&

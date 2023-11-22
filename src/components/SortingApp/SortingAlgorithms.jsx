@@ -5,24 +5,55 @@ import CocktailSort from "./sortingAppComponents/CocktailSort";
 import CountingSort from "./sortingAppComponents/CountingSort";
 import HeapSort from "./sortingAppComponents/HeapSort";
 import SelectionSort from "./sortingAppComponents/SelectionSort";
+import InsertionSort from "./sortingAppComponents/InsertionSort";
 
+<<<<<<< HEAD
 let startTime;
 let endTime;
+=======
+let startTime =0.0;
+let endTime = 0.0;
+let tempArr = [];
+let counter = 1;
+>>>>>>> 3c8fcaffdca069495af6c843c8bae69209c77c1c
 
 function SortingAlgorithms(){
     const [input, setInput] = useState("");
-
+    
     const [unsortedArray,setUnsortedArray] = useState([]);
     const [sortedArray,setSortedArray] = useState([]);
+<<<<<<< HEAD
     const [elapsedtime, setElapsedTime] = useState(0);
 
     function handleUnsroted(){
         setUnsortedArray(Array.from({length: 20}, () => Math.floor(Math.random() * 50)));
         setSortedArray([]);
         setElapsedTime(0);
+=======
+    const [elapsedtime, setElapsedTime] = useState();
+    const [times, setTimes] = useState({
+        time:null,
+        type:null,
+        number:null,
+    })
+    
+    let listItems = tempArr.map((elapsed) =>
+        <p key = {elapsed} className="listItems"> {elapsed.type} sort in {elapsed.time}</p>
+    );
+
+    function handleUnsroted(){
+        // generates a random-enough array of length 25 that may contain duplicates
+        const arrWithDuplicates = Array.from({length: 25}, () => Math.floor(Math.random() * 70));
+
+        // sets the working array as a version of the previusly generated array without any duplicates
+        setUnsortedArray(arrWithDuplicates.filter((item, index) => arrWithDuplicates.indexOf(item) === index));
+>>>>>>> 3c8fcaffdca069495af6c843c8bae69209c77c1c
     }
 
     function handleSort(){
+
+        // TODO: implement quick and heap sort
+
         switch(input){
             case 'Bubble':
                 startTime = performance.now();
@@ -33,8 +64,11 @@ function SortingAlgorithms(){
                 startTime = performance.now();
                 setSortedArray(CocktailSort(unsortedArray.slice(0)));
                 endTime = performance.now();
+<<<<<<< HEAD
 
                 
+=======
+>>>>>>> 3c8fcaffdca069495af6c843c8bae69209c77c1c
                 break;
             case 'Counting':
                 startTime = performance.now();
@@ -42,9 +76,14 @@ function SortingAlgorithms(){
                 endTime = performance.now();
                 break;
             case 'Heap':
-                
+                startTime = performance.now();
+                setSortedArray(HeapSort(unsortedArray.slice(0)));
+                endTime = performance.now();
                 break;
             case 'Insertion':
+                startTime = performance.now();
+                setSortedArray(InsertionSort(unsortedArray.slice(0)));
+                endTime = performance.now();
                 break;
             case 'Quick':
                 break;
@@ -52,24 +91,37 @@ function SortingAlgorithms(){
                 startTime = performance.now();
                 setSortedArray(SelectionSort(unsortedArray.slice(0)));
                 endTime = performance.now();
+<<<<<<< HEAD
 
                 break;
         }
 
         setElapsedTime(endTime-startTime);
+=======
+                break;
+        }
+        setTimes({time:(endTime-startTime), type: input});
+        if(times.time!=null){
+            tempArr.push(times);
+        }
+>>>>>>> 3c8fcaffdca069495af6c843c8bae69209c77c1c
     }
 
     const handleAlgoChange = () => {
-        setInput(document.getElementById("algoSelect").value);
+        setInput(document.getElementById("algoSelect").value)
         setSortedArray([]);
         setElapsedTime(0);
       };
 
       const handleReset = () =>{
-        // setInput("");
         setElapsedTime(0);
         setSortedArray([]);
         setUnsortedArray([]);
+        listItems = [];
+        tempArr = [];
+        console.log(listItems)
+        setTimes({time: null, type: null, number: null})
+        
       }
     
     return (
@@ -114,7 +166,9 @@ function SortingAlgorithms(){
                 }
                 {/* For now this only displays the current elapsed time, but I will create a list of times 
                 to allow for easier tracking and comparion */}
-                {elapsedtime !=0 && <div className="algo-results">Elapsed Time: {elapsedtime} seconds</div>}
+
+                {times.time != null && <p className="algo-results">Elapsed Time: {times.time} seconds</p>}
+
             </div>
         </div>
     )

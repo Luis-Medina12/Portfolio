@@ -18,9 +18,10 @@ function CocktailSort(input){
     
     while(swap===true){
 
-        // reset at beginning of loop to ensure a previous swap doe snot cause a false positive
+        // reset at beginning of loop to ensure a previous swap does not cause a false positive
         swap = false;
-        // direction =true -> traverse to the right, direction = false -> traverse to the left
+
+        // direction = true -> traverse to the right, direction = false -> traverse to the left
         // each iteration largest will be pushed to its spot on the left, and smallest on the right
         if(direction){
             

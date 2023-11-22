@@ -17,6 +17,7 @@ export default function SaurianTranslator () {
   };
 
   function switchLang() {
+    reset();
     if(transLanguage === 'ENGLISH')
     {
       setTransLanguage("SAURIAN")
