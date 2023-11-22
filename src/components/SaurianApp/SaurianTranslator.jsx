@@ -32,7 +32,7 @@ export default function SaurianTranslator () {
   
     return (
       <div className="App">
-        <Helmet>Saurian Translator</Helmet>
+        <Helmet><title>Saurian Translator</title></Helmet>
         <Header/>
         
         <body className = "App-body">

@@ -1,6 +1,6 @@
 import React, {useEffect, useState} from "react";
 import List from "./targetComponents/List/List";
-import Map from "./targetComponents/Map/Map";
+import DisplayMap from "./targetComponents/Map/DisplayMap";
 import useStyles from './targetComponents/Headers/styles'
 import { Autocomplete, Data } from "@react-google-maps/api";
 import { Grid } from "@material-ui/core";
@@ -159,16 +159,17 @@ function TargetBetterPrice() {
     </nav>
 
     {responseData.length === 0 && <Instructions/>}
+
       <Grid container spacing={2} style = {{width: '100%'}}>
-        <Grid md = {2}></Grid>
-        <Grid item xs={12} md={8}>
+        <Grid md = {1}></Grid>
+        <Grid item xs={12} md={10}>
           {responseData.length!== 0 &&
             <List store = {responseData}
             currLocation = {coordinates}
             />
           }
         </Grid>
-        <Grid md = {2}></Grid>
+        <Grid md = {1}></Grid>
 
         {/* leaving map out for now, bug is causing it to crash */}
 
@@ -176,7 +177,7 @@ function TargetBetterPrice() {
         
         {/* <Grid item xs={12} md = {7}>
         {responseData.length!== 0 &&
-            <Map
+            <DisplayMap
             setCoordinates={setCoordinates}
             setBounds = {setBounds}
             coordinates = {coordinates}

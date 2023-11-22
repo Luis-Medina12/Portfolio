@@ -8,7 +8,6 @@ import SelectionSort from "./sortingAppComponents/SelectionSort";
 
 let startTime;
 let endTime;
-let totalTime;
 
 function SortingAlgorithms(){
     const [input, setInput] = useState("");
@@ -16,16 +15,11 @@ function SortingAlgorithms(){
     const [unsortedArray,setUnsortedArray] = useState([]);
     const [sortedArray,setSortedArray] = useState([]);
     const [elapsedtime, setElapsedTime] = useState(0);
-    let tempArr = [];
 
     function handleUnsroted(){
-        // for(let i =0; i<20; i++){
-        //     tempArr[i] = i+1;
-        // }
-        
-        // setUnsortedArray(shuffle(tempArr));
-
         setUnsortedArray(Array.from({length: 20}, () => Math.floor(Math.random() * 50)));
+        setSortedArray([]);
+        setElapsedTime(0);
     }
 
     function handleSort(){
@@ -34,22 +28,18 @@ function SortingAlgorithms(){
                 startTime = performance.now();
                 setSortedArray(BubbleSort(unsortedArray.slice(0)));
                 endTime = performance.now();
-
-                setElapsedTime(endTime-startTime);
                 break;
             case 'Cocktail':
                 startTime = performance.now();
                 setSortedArray(CocktailSort(unsortedArray.slice(0)));
                 endTime = performance.now();
 
-                setElapsedTime(endTime-startTime);
+                
                 break;
             case 'Counting':
                 startTime = performance.now();
                 setSortedArray(CountingSort(unsortedArray.slice(0)));
                 endTime = performance.now();
-
-                setElapsedTime(endTime-startTime);
                 break;
             case 'Heap':
                 
@@ -63,9 +53,10 @@ function SortingAlgorithms(){
                 setSortedArray(SelectionSort(unsortedArray.slice(0)));
                 endTime = performance.now();
 
-                setElapsedTime(endTime-startTime);
                 break;
         }
+
+        setElapsedTime(endTime-startTime);
     }
 
     const handleAlgoChange = () => {
