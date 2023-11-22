@@ -7,29 +7,16 @@ import HeapSort from "./sortingAppComponents/HeapSort";
 import SelectionSort from "./sortingAppComponents/SelectionSort";
 import InsertionSort from "./sortingAppComponents/InsertionSort";
 
-<<<<<<< HEAD
-let startTime;
-let endTime;
-=======
 let startTime =0.0;
 let endTime = 0.0;
 let tempArr = [];
 let counter = 1;
->>>>>>> 3c8fcaffdca069495af6c843c8bae69209c77c1c
 
 function SortingAlgorithms(){
     const [input, setInput] = useState("");
     
     const [unsortedArray,setUnsortedArray] = useState([]);
     const [sortedArray,setSortedArray] = useState([]);
-<<<<<<< HEAD
-    const [elapsedtime, setElapsedTime] = useState(0);
-
-    function handleUnsroted(){
-        setUnsortedArray(Array.from({length: 20}, () => Math.floor(Math.random() * 50)));
-        setSortedArray([]);
-        setElapsedTime(0);
-=======
     const [elapsedtime, setElapsedTime] = useState();
     const [times, setTimes] = useState({
         time:null,
@@ -47,7 +34,6 @@ function SortingAlgorithms(){
 
         // sets the working array as a version of the previusly generated array without any duplicates
         setUnsortedArray(arrWithDuplicates.filter((item, index) => arrWithDuplicates.indexOf(item) === index));
->>>>>>> 3c8fcaffdca069495af6c843c8bae69209c77c1c
     }
 
     function handleSort(){
@@ -64,11 +50,6 @@ function SortingAlgorithms(){
                 startTime = performance.now();
                 setSortedArray(CocktailSort(unsortedArray.slice(0)));
                 endTime = performance.now();
-<<<<<<< HEAD
-
-                
-=======
->>>>>>> 3c8fcaffdca069495af6c843c8bae69209c77c1c
                 break;
             case 'Counting':
                 startTime = performance.now();
@@ -91,20 +72,12 @@ function SortingAlgorithms(){
                 startTime = performance.now();
                 setSortedArray(SelectionSort(unsortedArray.slice(0)));
                 endTime = performance.now();
-<<<<<<< HEAD
-
-                break;
-        }
-
-        setElapsedTime(endTime-startTime);
-=======
                 break;
         }
         setTimes({time:(endTime-startTime), type: input});
         if(times.time!=null){
             tempArr.push(times);
         }
->>>>>>> 3c8fcaffdca069495af6c843c8bae69209c77c1c
     }
 
     const handleAlgoChange = () => {
