@@ -12,7 +12,7 @@ import Footer from "./components/Footer/Footer";
     return (
         <>
         <NavBar/>
-        <Routes>
+        <Routes basename={process.env.PUBLIC_URL}>
           <Route exact path="/" element={<About/>}/>
           <Route exact path="/About" element={<About/>}/>
           <Route exact path="/TargetBetterPrice" element={<TargetBetterPrice/>}/>
