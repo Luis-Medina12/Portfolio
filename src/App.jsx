@@ -14,6 +14,7 @@ import Footer from "./components/Footer/Footer";
         <NavBar/>
         <Routes basename={process.env.PUBLIC_URL}>
           <Route exact path="/" element={<About/>}/>
+          <Route exact path="/Portfolio" element={<About/>}/>
           <Route exact path="/About" element={<About/>}/>
           <Route exact path="/TargetBetterPrice" element={<TargetBetterPrice/>}/>
           <Route exact path="/SaurianTranslator" element={<SaurianTranslator/>}/>
