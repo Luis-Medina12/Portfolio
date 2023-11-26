@@ -343,6 +343,7 @@ color: white;
   border-radius: 10px;
   flex-flow: column;
   margin-bottom: 50px;
+  align-items: center;
 }
 
 .welcome{
